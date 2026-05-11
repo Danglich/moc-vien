@@ -138,25 +138,71 @@ export default async function Page({
 
         {/* Info */}
         <div className="border mb-6 text-sm">
+          
+          <div className="grid grid-cols-2 border-b">
+            <div className="p-2 border-r bg-gray-50">
+              Chủ đầu tư 
+            </div>
+
+            <div className="p-2">
+              {
+                project.chuDauTu
+              }
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-2 border-b">
+            <div className="p-2 border-r bg-gray-50">
+              Số tầng
+            </div>
+
+            <div className="p-2">
+              {
+                project.soTang
+              }
+            </div>
+          </div>
+          <div className="grid grid-cols-2 border-b">
+            <div className="p-2 border-r bg-gray-50">
+              Diện tích sàn
+            </div>
+
+            <div className="p-2">
+              {
+                project.dienTichSan
+              }
+            </div>
+          </div>
+          <div className="grid grid-cols-2 border-b">
+            <div className="p-2 border-r bg-gray-50">
+              Địa chỉ
+            </div>
+
+            <div className="p-2">
+              {
+                project.diaChi
+              }
+            </div>
+          </div>
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
               Loại công trình
             </div>
 
             <div className="p-2">
-              {project.type}
+              {project.loaiHinh}
             </div>
           </div>
 
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
-              Ngày tạo
+              Tổng diện tích
             </div>
 
             <div className="p-2">
-              {new Date(
-                project.created_at
-              ).toLocaleDateString("vi-VN")}
+              {
+                project.tongDienTich
+              }
             </div>
           </div>
         </div>

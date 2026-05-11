@@ -124,6 +124,6 @@ body {
   background-color: var(--primary);
 }
 
-.project-description image{
-  margin: auto;
+.project-description img{
+  margin: 16px auto;
 }
