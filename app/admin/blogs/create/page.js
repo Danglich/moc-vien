@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { uploadImage } from "@/app/lib/uploadImage";
 import Editor from "@/app/components/Editor";
 import slugify from "slugify";
@@ -15,64 +15,39 @@ export default function AdminProjectsPage() {
   const [description, setDescription] =
     useState("");
 
-  // loading
-  const [thumbnailLoading, setThumbnailLoading] =
-    useState(false);
-
-  const [galleryLoading, setGalleryLoading] =
-    useState(false);
-
   // thumbnail
   async function handleThumbnail(e) {
     const file = e.target.files[0];
 
     if (!file) return;
 
-    try {
-      setThumbnailLoading(true);
+    const url = await uploadImage(file);
 
-      const url = await uploadImage(file);
-
-      setThumbnail(url);
-    } catch (err) {
-      console.log(err);
-      alert("Upload ảnh thất bại");
-    } finally {
-      setThumbnailLoading(false);
-    }
+    setThumbnail(url);
   }
 
   const handleChangeInfo = (key, value) => {
-    setInfo((prev) => {
-      return {
-        ...prev,
-        [key]: value,
-      };
-    });
-  };
+    setInfo(prev => {
+        return {
+            ...prev,
+            [key]: value
+        }
+    })
+  }
 
   // gallery
   async function handleGallery(e) {
     const files = Array.from(e.target.files);
 
-    try {
-      setGalleryLoading(true);
+    let urls = [];
 
-      let urls = [];
+    for (const file of files) {
+      const url = await uploadImage(file);
 
-      for (const file of files) {
-        const url = await uploadImage(file);
-
-        urls.push(url);
-      }
-
-      setGallery((prev) => [...prev, ...urls]);
-    } catch (err) {
-      console.log(err);
-      alert("Upload gallery thất bại");
-    } finally {
-      setGalleryLoading(false);
+      urls.push(url);
     }
+
+    setGallery((prev) => [...prev, ...urls]);
   }
 
   // remove thumbnail
@@ -101,30 +76,29 @@ export default function AdminProjectsPage() {
       thumbnail,
       gallery,
       description,
-      ...info,
+      ...info
     });
 
-    alert("Yeah , Đã tạo thành công :v");
 
+    alert("Yeal , Đã tạo thành công :v")
     window.location.reload();
   }
 
-  const PROJECT_TYPES = [
+  const BLOG_TYPES = [
+    "Biệt thự đẹp",
+    "Cẩm nang xây nhà",
+    "Công trình đang thi công",
+    "Dự án hoàn thiện",
+    "Kinh nghiệm hay",
     "Mẫu nhà mái Nhật",
-    "Nhà cấp 4",
-    "Mẫu biệt thự",
-    "Villa",
-    "Nhà phố",
-    "Thiết kế nhà vườn",
     "Mẫu nhà mái Thái",
-    "Thiết kế nhà hiện đại",
-    "Nhà phố",
+    "Thiết kế nhà vườn",
+    "Thiết kế biệt thự",
+    "Thiết kế nhà phố",
     "Nhà 1 tầng",
     "Nhà 2 tầng",
-    "Nhà 3 tầng",
-    "Nhà nhiều tầng",
-    "Công trình đang thi công",
-  ];
+    "Nhà 3 tầng"
+    ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -153,6 +127,7 @@ export default function AdminProjectsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
+                    placeholder=""
                     value={name}
                     onChange={(e) =>
                       setName(e.target.value)
@@ -160,7 +135,6 @@ export default function AdminProjectsPage() {
                     required
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 font-medium">
                     Loại hình
@@ -168,16 +142,13 @@ export default function AdminProjectsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={info.loaiHinh || ""}
+                    placeholder=""
+                    value={info.loaiHinh}
                     onChange={(e) =>
-                      handleChangeInfo(
-                        "loaiHinh",
-                        e.target.value
-                      )
+                      handleChangeInfo("loaiHinh", e.target.value)
                     }
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 font-medium">
                     Địa chỉ
@@ -185,16 +156,13 @@ export default function AdminProjectsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={info.diaChi || ""}
+                    placeholder=""
+                    value={info.diaChi}
                     onChange={(e) =>
-                      handleChangeInfo(
-                        "diaChi",
-                        e.target.value
-                      )
+                      handleChangeInfo("diaChi", e.target.value)
                     }
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 font-medium">
                     Chủ đầu tư
@@ -202,33 +170,27 @@ export default function AdminProjectsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={info.chuDauTu || ""}
+                    placeholder=""
+                    value={info.chuDauTu}
                     onChange={(e) =>
-                      handleChangeInfo(
-                        "chuDauTu",
-                        e.target.value
-                      )
+                      handleChangeInfo("chuDauTu", e.target.value)
                     }
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 font-medium">
-                    Số tầng
+                    Số tầng 
                   </label>
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={info.soTang || ""}
+                    placeholder=""
+                    value={info.soTang}
                     onChange={(e) =>
-                      handleChangeInfo(
-                        "soTang",
-                        e.target.value
-                      )
+                      handleChangeInfo("soTang", e.target.value)
                     }
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 font-medium">
                     Diện tích sàn
@@ -236,16 +198,13 @@ export default function AdminProjectsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={info.dienTichSan || ""}
+                    placeholder=""
+                    value={info.dienTichSan}
                     onChange={(e) =>
-                      handleChangeInfo(
-                        "dienTichSan",
-                        e.target.value
-                      )
+                      handleChangeInfo("dienTichSan", e.target.value)
                     }
                   />
                 </div>
-
                 <div>
                   <label className="block mb-2 font-medium">
                     Tổng diện tích
@@ -253,57 +212,54 @@ export default function AdminProjectsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={info.tongDienTich || ""}
+                    placeholder=""
+                    value={info.tongDienTich}
                     onChange={(e) =>
-                      handleChangeInfo(
-                        "tongDienTich",
-                        e.target.value
-                      )
+                      handleChangeInfo("tongDienTich", e.target.value)
                     }
                   />
                 </div>
 
                 <div>
-                  <label className="block mb-3 font-medium">
+                <label className="block mb-3 font-medium">
                     Loại dự án
-                  </label>
+                </label>
 
-                  <div className="flex flex-wrap gap-3">
-                    {PROJECT_TYPES.map((item) => {
-                      const active =
-                        types.includes(item);
+                <div className="flex flex-wrap gap-3">
+                    {BLOG_TYPES.map((item) => {
+                    const active = types.includes(item);
 
-                      return (
+                    return (
                         <button
-                          key={item}
-                          type="button"
-                          onClick={() => {
+                        key={item}
+                        type="button"
+                        onClick={() => {
                             if (active) {
-                              setTypes(
+                            setTypes(
                                 types.filter(
-                                  (t) => t !== item
+                                (t) => t !== item
                                 )
-                              );
+                            );
                             } else {
-                              setTypes([
+                            setTypes([
                                 ...types,
                                 item,
-                              ]);
+                            ]);
                             }
-                          }}
-                          className={`px-4 py-2 rounded-xl border transition
-                          ${
+                        }}
+                        className={`px-4 py-2 rounded-xl border transition
+                            ${
                             active
-                              ? "bg-black text-white border-black"
-                              : "bg-white hover:bg-gray-100"
-                          }
+                                ? "bg-black text-white border-black"
+                                : "bg-white hover:bg-gray-100"
+                            }
                         `}
                         >
-                          {item}
+                        {item}
                         </button>
-                      );
+                    );
                     })}
-                  </div>
+                </div>
                 </div>
               </div>
             </div>
@@ -316,28 +272,18 @@ export default function AdminProjectsPage() {
                 </h2>
 
                 <label className="bg-black text-white px-4 py-2 rounded-xl cursor-pointer hover:opacity-90">
-                  {thumbnailLoading
-                    ? "Đang upload..."
-                    : "Upload"}
-
+                  Upload
                   <input
                     hidden
                     type="file"
                     accept="image/*"
                     onChange={handleThumbnail}
+                    required
                   />
                 </label>
               </div>
 
-              {thumbnailLoading ? (
-                <div className="h-[320px] border-2 border-dashed rounded-2xl flex flex-col items-center justify-center">
-                  <div className="w-10 h-10 border-4 border-gray-300 border-t-black rounded-full animate-spin mb-4"></div>
-
-                  <p className="text-gray-500">
-                    Đang upload ảnh...
-                  </p>
-                </div>
-              ) : thumbnail ? (
+              {thumbnail ? (
                 <div className="relative w-full">
                   <img
                     src={thumbnail}
@@ -366,29 +312,17 @@ export default function AdminProjectsPage() {
                 </h2>
 
                 <label className="bg-black text-white px-4 py-2 rounded-xl cursor-pointer hover:opacity-90">
-                  {galleryLoading
-                    ? "Đang upload..."
-                    : "Thêm các hình ảnh lên"}
-
+                  Thêm các hình ảnh lên
                   <input
                     hidden
                     multiple
                     type="file"
                     accept="image/*"
                     onChange={handleGallery}
+                    required
                   />
                 </label>
               </div>
-
-              {galleryLoading && (
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-7 h-7 border-4 border-gray-300 border-t-black rounded-full animate-spin"></div>
-
-                  <span className="text-gray-500">
-                    Đang upload gallery...
-                  </span>
-                </div>
-              )}
 
               {gallery.length > 0 ? (
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
@@ -413,11 +347,11 @@ export default function AdminProjectsPage() {
                     </div>
                   ))}
                 </div>
-              ) : !galleryLoading ? (
+              ) : (
                 <div className="h-[240px] border-2 border-dashed rounded-2xl flex items-center justify-center text-gray-400">
                   Chưa có hình ảnh nào
                 </div>
-              ) : null}
+              )}
             </div>
 
             {/* Editor */}
