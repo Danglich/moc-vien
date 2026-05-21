@@ -15,10 +15,18 @@ export default function ProjectsListPage() {
 
     const { data } = await supabase
       .from("projects")
-      .select("*")
+      .select(`
+        id,
+        name,
+        slug,
+        thumbnail,
+        types,
+        created_at
+      `)
       .order("created_at", {
         ascending: false,
-      });
+      })
+      .range(0, 100);
 
     setProjects(data || []);
 
@@ -131,7 +139,7 @@ export default function ProjectsListPage() {
                       {/* Content */}
                       <div className="flex-1">
                         <div className="flex flex-wrap gap-2 mb-3">
-                          {project.type?.map(
+                          {project.types?.map(
                             (item) => (
                               <span
                                 key={item}
