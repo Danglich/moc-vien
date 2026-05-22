@@ -5,11 +5,19 @@ import { supabase } from "@/app/lib/supabase";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// SSG
+// ISR
+export const revalidate = 60;
+
+// SSG params
 export async function generateStaticParams() {
-  const { data } = await supabase
+  const { data, error } = await supabase
     .from("projects")
     .select("slug");
+
+  if (error) {
+    console.log(error);
+    return [];
+  }
 
   return (data || []).map((item) => ({
     slug: item.slug,
@@ -20,13 +28,13 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }) {
-  const { slug } = await params;
+  const { slug } = params;
 
   const { data: project } = await supabase
     .from("projects")
     .select("*")
     .eq("slug", slug)
-    .single();
+    .maybeSingle();
 
   if (!project) {
     return {};
@@ -54,26 +62,28 @@ export async function generateMetadata({
   };
 }
 
-export const revalidate = 60;
-
 export default async function Page({
   params,
 }) {
-  const { slug } = await params;
+  const { slug } = params;
 
-  console.log(slug);
+  console.log("slug:", slug);
 
-  const { data: project, error } =
-    await supabase
-      .from("projects")
-      .select("*")
-      .eq("slug", slug)
-      .maybeSingle();
+  const {
+    data: project,
+    error,
+  } = await supabase
+    .from("projects")
+    .select("*")
+    .eq("slug", slug)
+    .maybeSingle();
 
-  console.log(project);
+  console.log({
+    project,
+    error,
+  });
 
-
-  if (!project || error) {
+  if (!project) {
     notFound();
   }
 
@@ -113,7 +123,6 @@ export default async function Page({
 
       {/* LEFT */}
       <div className="lg:flex-3">
-        {/* Breadcrumb */}
         <nav className="text-sm text-gray-500 mb-3">
           <Link href="/">
             Trang chủ
@@ -128,12 +137,10 @@ export default async function Page({
           </span>
         </nav>
 
-        {/* Title */}
         <h1 className="text-2xl font-bold mb-4">
           {project.name}
         </h1>
 
-        {/* Gallery */}
         <ProjectGallery
           images={[
             project.thumbnail,
@@ -142,54 +149,47 @@ export default async function Page({
           title={project.name}
         />
 
-        {/* Info */}
         <div className="border mb-6 text-sm">
-          
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
-              Chủ đầu tư 
+              Chủ đầu tư
             </div>
 
             <div className="p-2">
-              {
-                project.chuDauTu
-              }
+              {project.chuDauTu}
             </div>
           </div>
-          
+
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
               Số tầng
             </div>
 
             <div className="p-2">
-              {
-                project.soTang
-              }
+              {project.soTang}
             </div>
           </div>
+
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
               Diện tích sàn
             </div>
 
             <div className="p-2">
-              {
-                project.dienTichSan
-              }
+              {project.dienTichSan}
             </div>
           </div>
+
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
               Địa chỉ
             </div>
 
             <div className="p-2">
-              {
-                project.diaChi
-              }
+              {project.diaChi}
             </div>
           </div>
+
           <div className="grid grid-cols-2 border-b">
             <div className="p-2 border-r bg-gray-50">
               Loại công trình
@@ -206,14 +206,11 @@ export default async function Page({
             </div>
 
             <div className="p-2">
-              {
-                project.tongDienTich
-              }
+              {project.tongDienTich}
             </div>
           </div>
         </div>
 
-        {/* Content */}
         <div
           className="prose max-w-none"
           dangerouslySetInnerHTML={{
@@ -230,55 +227,6 @@ export default async function Page({
 
       {/* RIGHT */}
       <div className="lg:flex-1">
-        <div>
-          {/* Box 1 */}
-          <div className="mb-6 shadow-[0_10px_40px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.04)] p-4 rounded-xl">
-            <p className="relative border-b uppercase text-[22px] pb-1">
-              Tìm theo loại nhà
-
-              <span className="absolute bottom-[-1px] left-0 w-20 bg-red-500 h-[2px]"></span>
-            </p>
-
-            <ul className="flex-wrap gap-4 flex mt-4">
-              <li className="px-3 py-1 rounded-xs border cursor-pointer hover:text-primary">
-                Nhà mái Nhật
-              </li>
-
-              <li className="px-3 py-1 rounded-xs border cursor-pointer hover:text-primary">
-                Nhà cấp 4
-              </li>
-
-              <li className="px-3 py-1 rounded-xs border cursor-pointer hover:text-primary">
-                Nhà vườn
-              </li>
-            </ul>
-          </div>
-
-          {/* Box 2 */}
-          <div className="mb-6 shadow-[0_10px_40px_rgba(0,0,0,0.06),0_2px_8px_rgba(0,0,0,0.04)] p-4 rounded-xl">
-            <p className="relative border-b uppercase text-[22px] pb-1">
-              Tìm theo loại nhà
-
-              <span className="absolute bottom-[-1px] left-0 w-20 bg-red-500 h-[2px]"></span>
-            </p>
-
-            <ul className="flex-wrap gap-4 flex mt-4">
-              <li className="px-3 py-1 rounded-xs border cursor-pointer hover:text-primary">
-                Nhà mái Nhật
-              </li>
-
-              <li className="px-3 py-1 rounded-xs border cursor-pointer hover:text-primary">
-                Nhà cấp 4
-              </li>
-
-              <li className="px-3 py-1 rounded-xs border cursor-pointer hover:text-primary">
-                Nhà vườn
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Recent posts */}
         <h3 className="font-semibold mb-3">
           Bài viết mới
         </h3>
