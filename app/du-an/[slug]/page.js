@@ -54,18 +54,19 @@ export async function generateMetadata({
   };
 }
 
+export const revalidate = 60;
+
 export default async function Page({
   params,
 }) {
   const { slug } = await params;
 
-  // current project
   const { data: project, error } =
     await supabase
       .from("projects")
       .select("*")
       .eq("slug", slug)
-      .single();
+      .maybeSingle();
 
   if (!project || error) {
     notFound();
