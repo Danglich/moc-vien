@@ -178,7 +178,13 @@ export default function ProjectsListPage() {
                         >
                           Xem
                         </Link>
-
+                        <Link
+                          href={`/admin/projects/edit/${project.id}`}
+                          target="_blank"
+                          className="px-5 py-3 rounded-2xl border hover:bg-blue-500 transition text-center"
+                        >
+                          Sửa
+                        </Link>
                         <button
                           onClick={() =>
                             deleteProject(
