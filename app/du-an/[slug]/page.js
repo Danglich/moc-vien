@@ -98,7 +98,7 @@ export default async function Page({
   };
 
   return (
-    <div className="project-description container mx-auto px-4 py-8 grid grid-cols-1 lg:flex gap-8">
+    <div className="container mx-auto px-4 py-8 grid grid-cols-1 lg:flex gap-8">
       {/* Schema */}
       <script
         type="application/ld+json"
@@ -203,7 +203,7 @@ export default async function Page({
 
         {/* Content */}
         <div
-          className="prose max-w-none"
+          className="prose max-w-none project-description"
           dangerouslySetInnerHTML={{
             __html:
               project.description || "",
@@ -278,7 +278,7 @@ export default async function Page({
               key={item.id}
               href={`/du-an/${item.slug}`}
             >
-              <div className="flex gap-3">
+              <div className="flex gap-3 mb-4">
                 <img
                   src={item.thumbnail}
                   width={80}
