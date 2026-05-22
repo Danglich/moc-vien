@@ -61,12 +61,17 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
+  console.log(slug);
+
   const { data: project, error } =
     await supabase
       .from("projects")
       .select("*")
       .eq("slug", slug)
       .maybeSingle();
+
+  console.log(project);
+
 
   if (!project || error) {
     notFound();
