@@ -6,10 +6,10 @@ import { supabase } from "@/app/lib/supabase";
 
 // Chỉ hiển thị các type này
 const DISPLAY_TYPES = [
-  "Thiết kế nhà vườn",
-  "Mẫu nhà mái Thái",
   "Mẫu nhà mái Nhật",
   "Thiết kế nhà hiện đại",
+  "Thiết kế nhà vườn",
+  "Nhà 2 tầng",
   "Nhà cấp 4",
 ];
 
