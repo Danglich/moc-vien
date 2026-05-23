@@ -4,9 +4,18 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { supabase } from "@/app/lib/supabase";
 
+// Chỉ hiển thị các type này
+const DISPLAY_TYPES = [
+  "Thiết kế nhà vườn",
+  "Mẫu nhà mái Thái",
+  "Mẫu nhà mái Nhật",
+  "Thiết kế nhà hiện đại",
+  "Nhà cấp 4",
+];
+
 export default function HouseTabs() {
   const [projects, setProjects] = useState([]);
-  const [activeTab, setActiveTab] = useState("");
+  const [activeTab, setActiveTab] = useState(DISPLAY_TYPES[0]);
   const [loading, setLoading] = useState(true);
 
   // fetch projects
@@ -14,7 +23,6 @@ export default function HouseTabs() {
     async function fetchProjects() {
       setLoading(true);
 
-      // KHÔNG load description vì nặng
       const { data, error } = await supabase
         .from("projects")
         .select(`
@@ -31,17 +39,6 @@ export default function HouseTabs() {
         console.log(error);
       } else {
         setProjects(data || []);
-
-        // lấy tất cả loại nhà duy nhất
-        const allTypes = [
-          ...new Set(
-            (data || []).flatMap((item) => item.types || [])
-          ),
-        ];
-
-        if (allTypes.length > 0) {
-          setActiveTab(allTypes[0]);
-        }
       }
 
       setLoading(false);
@@ -50,20 +47,13 @@ export default function HouseTabs() {
     fetchProjects();
   }, []);
 
-  // tabs
-  const tabs = useMemo(() => {
-    return [
-      ...new Set(
-        projects.flatMap((item) => item.types || [])
-      ),
-    ];
-  }, [projects]);
-
-  // filter
+  // lọc project theo type + giới hạn 6 item
   const filteredProjects = useMemo(() => {
-    return projects.filter((item) =>
-      (item.types || []).includes(activeTab)
-    );
+    return projects
+      .filter((item) =>
+        (item.types || []).includes(activeTab)
+      )
+      .slice(0, 6);
   }, [projects, activeTab]);
 
   if (loading) {
@@ -83,7 +73,7 @@ export default function HouseTabs() {
 
       {/* Tabs */}
       <div className="flex md:flex-wrap gap-4 md:gap-6 mb-8 overflow-x-auto no-scrollbar">
-        {tabs.map((tab) => (
+        {DISPLAY_TYPES.map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
@@ -167,9 +157,11 @@ export default function HouseTabs() {
 
       {/* Button */}
       <div className="flex justify-center mt-5">
-        <button className="border md:text-black px-6 py-2 md:py-3 rounded-[30px] font-medium hover:bg-black hover:text-white cursor-pointer transition">
-          Xem thêm
-        </button>
+        <Link href={`/du-an?type=${encodeURIComponent(activeTab)}`}>
+          <button className="border md:text-black px-6 py-2 md:py-3 rounded-[30px] font-medium hover:bg-black hover:text-white cursor-pointer transition">
+            Xem thêm
+          </button>
+        </Link>
       </div>
     </div>
   );
