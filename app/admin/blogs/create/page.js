@@ -7,7 +7,7 @@ import slugify from "slugify";
 import { supabase } from "@/app/lib/supabase";
 
 export default function AdminBlogsPage() {
-  const [name, setName] = useState("");
+  const [title, setTitle] = useState("");
   const [thumbnail, setThumbnail] = useState("");
   const [content, setContent] = useState("");
   const [description, setDescription] =
@@ -77,9 +77,9 @@ export default function AdminBlogsPage() {
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    value={name}
+                    value={title}
                     onChange={(e) =>
-                      setName(e.target.value)
+                      setTitle(e.target.value)
                     }
                     required
                   />
