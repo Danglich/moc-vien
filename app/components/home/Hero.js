@@ -4,14 +4,17 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 export const bannerData = [
   {
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/04/ung-dung-cong-nghe-moi.png",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner-2.png",
   },
   {
-    image: "https://maxhomegroup.vn/wp-content/uploads/2026/04/banner-kien-truc-maxhome-2026.png",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner-1.png",
   },
   {
-    image: "https://maxhomegroup.vn/wp-content/uploads/2024/04/anh-banner-giam-sat-thanh-tra-1920x680.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner-3.png",
   },
+  {
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner-4.png",
+  }
 ];
 
 export default function Hero() {
