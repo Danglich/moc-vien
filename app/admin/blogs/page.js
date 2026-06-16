@@ -114,11 +114,15 @@ export default function AdminBlogsPage() {
               >
 
                 <td className="p-4 w-40">
-
-                  <img
-                    src={blog.thumbnail}
-                    className="w-28 h-20 rounded-lg object-cover"
-                  />
+                    <Link
+                        href={`/bai-viet/${blog.slug}`}
+                        className="px-4 py-2 rounded-lg bg-blue-600 text-white"
+                    >
+                        <img
+                            src={blog.thumbnail}
+                            className="w-28 h-20 rounded-lg object-cover"
+                        />
+                    </Link>
 
                 </td>
 
