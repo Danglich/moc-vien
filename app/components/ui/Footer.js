@@ -87,11 +87,11 @@ export default function Footer() {
                         <div className="space-y-3 text-sm">
                             <p className="flex items-center gap-2">
                                 <FaPhoneAlt className="text-yellow-400" />
-                                Hotline: 092.774.8888
+                                Hotline: 082.8001.569
                             </p>
                             <p className="flex items-center gap-2">
                                 <FaPhoneAlt className="text-yellow-400" />
-                                Hotline: 092.924.5555
+                                Hotline: 082.8001.569
                             </p>
                             <p className="flex items-center gap-2">
                                 <FaEnvelope className="text-yellow-400" />
@@ -174,7 +174,7 @@ export default function Footer() {
                 className={`fixed left-0 w-full bg-[#0d5c91] flex justify-center gap-4 py-3 transition-all duration-300 z-50 bottom-0`}
             >
                 <div className="bg-yellow-400 px-4 py-2 rounded font-semibold flex items-center gap-3">
-                    <span>092.774.8888</span>
+                    <span>035.413.6968</span>
                     <div className="">
                         <Image
                             src="/images/zalo-icon.png"
@@ -187,7 +187,7 @@ export default function Footer() {
                 </div>
 
                 <div className="bg-yellow-400 px-5 py-2 rounded font-semibold">
-                    092.924.5555
+                    082.8001.569
                 </div>
 
                 <div className="bg-yellow-400 px-5 py-2 rounded font-semibold">

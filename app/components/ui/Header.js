@@ -63,10 +63,10 @@ export default function Header() {
 
             <div className="text-right">
               <p className="text-yellow-500 font-semibold leading-tight">
-                092.924.5555
+                082.8001.569
               </p>
               <p className="text-yellow-500 font-semibold leading-tight">
-                092.774.8888
+                035.413.6968
               </p>
             </div>
           </div>
