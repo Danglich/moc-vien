@@ -31,13 +31,13 @@ export default function AdminBlogsPage() {
 
   // save
   async function handleSubmit() {
-    const slug = slugify(name, {
+    const slug = slugify(title, {
       lower: true,
       strict: true,
     });
 
     await supabase.from("blogs").insert({
-      name,
+      title,
       slug,
       thumbnail,
       description,
