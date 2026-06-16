@@ -10,9 +10,6 @@ export const bannerData = [
     image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner4.png",
   },
   {
-    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner3.png",
-  },
-  {
     image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/banners/banner2.png",
   }
 ];
