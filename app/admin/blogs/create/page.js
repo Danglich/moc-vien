@@ -6,12 +6,10 @@ import Editor from "@/app/components/Editor";
 import slugify from "slugify";
 import { supabase } from "@/app/lib/supabase";
 
-export default function AdminProjectsPage() {
+export default function AdminBlogsPage() {
   const [name, setName] = useState("");
-  const [info, setInfo] = useState({});
-  const [types, setTypes] = useState([]);
   const [thumbnail, setThumbnail] = useState("");
-  const [gallery, setGallery] = useState([]);
+  const [content, setContent] = useState("");
   const [description, setDescription] =
     useState("");
 
@@ -26,40 +24,9 @@ export default function AdminProjectsPage() {
     setThumbnail(url);
   }
 
-  const handleChangeInfo = (key, value) => {
-    setInfo(prev => {
-        return {
-            ...prev,
-            [key]: value
-        }
-    })
-  }
-
-  // gallery
-  async function handleGallery(e) {
-    const files = Array.from(e.target.files);
-
-    let urls = [];
-
-    for (const file of files) {
-      const url = await uploadImage(file);
-
-      urls.push(url);
-    }
-
-    setGallery((prev) => [...prev, ...urls]);
-  }
-
   // remove thumbnail
   function removeThumbnail() {
     setThumbnail("");
-  }
-
-  // remove gallery image
-  function removeGalleryImage(img) {
-    setGallery((prev) =>
-      prev.filter((item) => item !== img)
-    );
   }
 
   // save
@@ -72,33 +39,15 @@ export default function AdminProjectsPage() {
     await supabase.from("projects").insert({
       name,
       slug,
-      types,
       thumbnail,
-      gallery,
       description,
-      ...info
+      content
     });
 
 
     alert("Yeal , Đã tạo thành công :v")
     window.location.reload();
   }
-
-  const BLOG_TYPES = [
-    "Biệt thự đẹp",
-    "Cẩm nang xây nhà",
-    "Công trình đang thi công",
-    "Dự án hoàn thiện",
-    "Kinh nghiệm hay",
-    "Mẫu nhà mái Nhật",
-    "Mẫu nhà mái Thái",
-    "Thiết kế nhà vườn",
-    "Thiết kế biệt thự",
-    "Thiết kế nhà phố",
-    "Nhà 1 tầng",
-    "Nhà 2 tầng",
-    "Nhà 3 tầng"
-    ];
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -113,6 +62,7 @@ export default function AdminProjectsPage() {
         <div className="gap-8 mx-20">
           {/* LEFT */}
           <div className="space-y-6">
+
             {/* Basic info */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border">
               <h2 className="text-xl font-semibold mb-6">
@@ -122,12 +72,11 @@ export default function AdminProjectsPage() {
               <div className="space-y-5">
                 <div>
                   <label className="block mb-2 font-medium">
-                    Tiêu đề dự án
+                    Tiêu đề bài viết
                   </label>
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
                     value={name}
                     onChange={(e) =>
                       setName(e.target.value)
@@ -137,129 +86,17 @@ export default function AdminProjectsPage() {
                 </div>
                 <div>
                   <label className="block mb-2 font-medium">
-                    Loại hình
+                    Mô tả bài viết
                   </label>
 
                   <input
                     className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
-                    value={info.loaiHinh}
+                    value={description}
                     onChange={(e) =>
-                      handleChangeInfo("loaiHinh", e.target.value)
+                      setDescription(e.target.value)
                     }
+                    required
                   />
-                </div>
-                <div>
-                  <label className="block mb-2 font-medium">
-                    Địa chỉ
-                  </label>
-
-                  <input
-                    className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
-                    value={info.diaChi}
-                    onChange={(e) =>
-                      handleChangeInfo("diaChi", e.target.value)
-                    }
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 font-medium">
-                    Chủ đầu tư
-                  </label>
-
-                  <input
-                    className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
-                    value={info.chuDauTu}
-                    onChange={(e) =>
-                      handleChangeInfo("chuDauTu", e.target.value)
-                    }
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 font-medium">
-                    Số tầng 
-                  </label>
-
-                  <input
-                    className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
-                    value={info.soTang}
-                    onChange={(e) =>
-                      handleChangeInfo("soTang", e.target.value)
-                    }
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 font-medium">
-                    Diện tích sàn
-                  </label>
-
-                  <input
-                    className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
-                    value={info.dienTichSan}
-                    onChange={(e) =>
-                      handleChangeInfo("dienTichSan", e.target.value)
-                    }
-                  />
-                </div>
-                <div>
-                  <label className="block mb-2 font-medium">
-                    Tổng diện tích
-                  </label>
-
-                  <input
-                    className="w-full border rounded-xl px-4 py-3 outline-none focus:border-black"
-                    placeholder=""
-                    value={info.tongDienTich}
-                    onChange={(e) =>
-                      handleChangeInfo("tongDienTich", e.target.value)
-                    }
-                  />
-                </div>
-
-                <div>
-                <label className="block mb-3 font-medium">
-                    Loại dự án
-                </label>
-
-                <div className="flex flex-wrap gap-3">
-                    {BLOG_TYPES.map((item) => {
-                    const active = types.includes(item);
-
-                    return (
-                        <button
-                        key={item}
-                        type="button"
-                        onClick={() => {
-                            if (active) {
-                            setTypes(
-                                types.filter(
-                                (t) => t !== item
-                                )
-                            );
-                            } else {
-                            setTypes([
-                                ...types,
-                                item,
-                            ]);
-                            }
-                        }}
-                        className={`px-4 py-2 rounded-xl border transition
-                            ${
-                            active
-                                ? "bg-black text-white border-black"
-                                : "bg-white hover:bg-gray-100"
-                            }
-                        `}
-                        >
-                        {item}
-                        </button>
-                    );
-                    })}
-                </div>
                 </div>
               </div>
             </div>
@@ -304,56 +141,6 @@ export default function AdminProjectsPage() {
               )}
             </div>
 
-            {/* Gallery */}
-            <div className="bg-white rounded-3xl p-6 shadow-sm border">
-              <div className="flex items-center justify-between mb-5">
-                <h2 className="text-xl font-semibold">
-                  Các hình ảnh của dự án
-                </h2>
-
-                <label className="bg-black text-white px-4 py-2 rounded-xl cursor-pointer hover:opacity-90">
-                  Thêm các hình ảnh lên
-                  <input
-                    hidden
-                    multiple
-                    type="file"
-                    accept="image/*"
-                    onChange={handleGallery}
-                    required
-                  />
-                </label>
-              </div>
-
-              {gallery.length > 0 ? (
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                  {gallery.map((img) => (
-                    <div
-                      key={img}
-                      className="relative group"
-                    >
-                      <img
-                        src={img}
-                        className="w-full h-[220px] object-cover rounded-2xl"
-                      />
-
-                      <button
-                        onClick={() =>
-                          removeGalleryImage(img)
-                        }
-                        className="absolute top-3 right-3 bg-black/70 text-white w-9 h-9 rounded-full opacity-0 group-hover:opacity-100 transition hover:bg-red-500"
-                      >
-                        ✕
-                      </button>
-                    </div>
-                  ))}
-                </div>
-              ) : (
-                <div className="h-[240px] border-2 border-dashed rounded-2xl flex items-center justify-center text-gray-400">
-                  Chưa có hình ảnh nào
-                </div>
-              )}
-            </div>
-
             {/* Editor */}
             <div className="bg-white rounded-3xl p-6 shadow-sm border">
               <h2 className="text-xl font-semibold mb-5">
@@ -361,8 +148,8 @@ export default function AdminProjectsPage() {
               </h2>
 
               <Editor
-                content={description}
-                onChange={setDescription}
+                content={content}
+                onChange={setContent}
               />
             </div>
 
