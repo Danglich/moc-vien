@@ -36,7 +36,7 @@ export default function AdminBlogsPage() {
       strict: true,
     });
 
-    await supabase.from("projects").insert({
+    await supabase.from("blogs").insert({
       name,
       slug,
       thumbnail,
