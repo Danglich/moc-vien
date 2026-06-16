@@ -53,7 +53,7 @@ export default function Hero() {
             />
 
             {/* Overlay text */}
-            <div className="absolute inset-0 bg-black/30 flex flex-col items-center justify-center text-center text-white">
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white">
               <h2 className="text-3xl font-bold mb-2">
                 {slide.title}
               </h2>
