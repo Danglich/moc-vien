@@ -4,29 +4,29 @@ export const aboutData = {
   intro: {
     title: "Giới thiệu Mộc Viên",
     description:
-      "Với hơn 12 năm kinh nghiệm trong lĩnh vực thiết kế, Mộc Viên đã khẳng định vị thế là một trong những đơn vị thiết kế uy tín và được khách hàng tin tưởng hàng đầu trên toàn quốc.",
+      "Với hơn 10 năm kinh nghiệm trong lĩnh vực thiết kế, Mộc Viên đã khẳng định vị thế là một trong những đơn vị thiết kế uy tín và được khách hàng tin tưởng hàng đầu trên toàn quốc.",
     features: [
       "Chi nhánh rộng khắp cả nước",
       "Đội ngũ thiết kế chuyên nghiệp và sáng tạo",
       "Tiêu chuẩn chất lượng, kiểm duyệt nghiêm ngặt",
     ],
     stats: [
-      { value: "12+", label: "năm kinh nghiệm" },
-      { value: "4500+", label: "Khách hàng yêu thích" },
-      { value: "10.000+", label: "Đánh giá tích cực và trải nghiệm" },
+      { value: "10+", label: "năm kinh nghiệm" },
+      { value: "1000+", label: "Khách hàng yêu thích" },
+      { value: "5.000+", label: "Đánh giá tích cực và trải nghiệm" },
     ],
     image: "https://mocviengroup.vn/wp-content/uploads/2025/03/483487289_122116599596716662_6306153882274393052_n.jpg",
   },
 
   office: {
-    title: "Trụ sở Mộc Viên",
+    title: "Đội ngũ thiết kế Mộc Viên",
     description:
-      "Trụ sở rộng lớn trải dài toàn quốc được đầu tư bài bản là điểm tựa để Mộc Viên vận hành bộ máy thiết kế chuyên nghiệp, từ khâu tư vấn đến triển khai bản vẽ.",
+      "Đội ngũ kiến trúc sư và kỹ sư của Mộc Viên luôn đặt công năng, thẩm mỹ và tính khả thi lên hàng đầu, mang đến những không gian sống phù hợp với từng gia đình.",
     features: [
-      "Nhóm khảo sát kỹ thuật",
-      "Nhóm thiết kế kiến trúc",
-      "Phòng phong thuỷ",
-      "Phòng chăm sóc khách hàng",
+      "Thiết kế kiến trúc sáng tạo",
+      "Thiết kế nội thất đồng bộ",
+      "Tối ưu công năng sử dụng",
+      "Cá nhân hóa theo nhu cầu gia chủ",
     ],
     image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/van_phong.png",
   },
@@ -41,7 +41,7 @@ export const aboutData = {
       "Dịch vụ phong thủy",
       "Thước lỗ ban",
     ],
-    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/phong_thuy.png",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/phong_thuy_2.png",
   },
 };
 
