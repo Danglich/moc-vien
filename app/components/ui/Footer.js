@@ -162,13 +162,29 @@ export default function Footer() {
                         />
                     </div>
                 </div>
-
-                <div className="bg-yellow-400 px-5 py-2 rounded font-semibold">
-                    082.8001.569
+                <div className="bg-yellow-400 px-4 py-2 rounded font-semibold flex items-center gap-3">
+                    <span>082.8001.569</span>
+                    <div className="">
+                        <Image
+                            src="/images/zalo-icon.png"
+                            alt="banner"
+                            width={32}
+                            height={32}
+                            className="zoom-animation"
+                        />
+                    </div>
                 </div>
-
-                <div className="bg-yellow-400 px-5 py-2 rounded font-semibold">
-                    092.405.3333
+                <div className="bg-yellow-400 px-4 py-2 rounded font-semibold flex items-center gap-3">
+                    <span>033.8864.005</span>
+                    <div className="">
+                        <Image
+                            src="/images/zalo-icon.png"
+                            alt="banner"
+                            width={32}
+                            height={32}
+                            className="zoom-animation"
+                        />
+                    </div>
                 </div>
             </div>
         </footer>
