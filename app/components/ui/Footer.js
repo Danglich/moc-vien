@@ -9,12 +9,13 @@ import {
     FaTiktok,
     FaFacebook,
     FaMapMarkerAlt,
+    FaPhoneAlt ,
 } from "react-icons/fa";
 
 const aboutLinks = [
     "Giới thiệu Mộc Viên",
-    "Tuyển dụng",
-    "Chính sách bảo mật",
+    "Quy trình",
+    "Cam kết",
     "Liên hệ",
 ];
 
@@ -98,23 +99,22 @@ export default function Footer() {
                         <h3 className="text-yellow-400 font-bold text-lg mb-4 border-b border-yellow-400 pb-2">
                             THÔNG TIN LIÊN HỆ
                         </h3>
-
-                        {branches.map((branch, i) => (
-                            <div key={i} className="mb-6">
-                                <h4 className="text-yellow-400 font-semibold mb-2">
-                                    {branch.title}
-                                </h4>
-
-                                <ul className="space-y-2 text-sm text-gray-200">
-                                    {branch.items.map((item, idx) => (
-                                        <li key={idx} className="flex gap-2">
-                                            <FaMapMarkerAlt className="text-yellow-400 mt-1" />
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
+                        <div className="mb-6">
+                            <ul className="space-y-2 text-sm text-gray-200">
+                                <li className="">
+                                    <a href="tel:+84354136968" className="flex gap-2">
+                                        <FaPhoneAlt className="text-yellow-400 mt-1" />
+                                        <span>035.413.6968</span>
+                                    </a>
+                                </li>
+                                <li className="">
+                                    <a href="" className="flex gap-2">
+                                        <FaMapMarkerAlt className="text-yellow-400 mt-1" />
+                                        <span>247 Xô Viết Nghệ Tĩnh , Phường Thành Vinh - Nghệ An</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                     {/* CỘT 3 */}
