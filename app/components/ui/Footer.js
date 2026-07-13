@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import {
-    FaPhoneAlt,
     FaEnvelope,
     FaYoutube,
     FaTiktok,
