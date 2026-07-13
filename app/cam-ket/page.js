@@ -86,7 +86,7 @@ export default function CamKetPage() {
       {/* Banner */}
       <div className="mb-8">
         <img
-          src="https://maxhomegroup.vn/wp-content/uploads/2025/12/cam-ket-maxhome.jpg"
+          src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/cam_ket.png"
           alt="Cam kết Mộc Viên"
           width={1000}
           height={700}

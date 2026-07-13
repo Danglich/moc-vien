@@ -4,7 +4,7 @@ export const aboutData = {
   intro: {
     title: "Giới thiệu Mộc Viên",
     description:
-      "Với hơn 12 năm kinh nghiệm trong lĩnh vực thiết kế, Maxhome đã khẳng định vị thế là một trong những đơn vị thiết kế uy tín và được khách hàng tin tưởng hàng đầu trên toàn quốc.",
+      "Với hơn 12 năm kinh nghiệm trong lĩnh vực thiết kế, Mộc Viên đã khẳng định vị thế là một trong những đơn vị thiết kế uy tín và được khách hàng tin tưởng hàng đầu trên toàn quốc.",
     features: [
       "Chi nhánh rộng khắp cả nước",
       "Đội ngũ thiết kế chuyên nghiệp và sáng tạo",
@@ -21,7 +21,7 @@ export const aboutData = {
   office: {
     title: "Trụ sở Mộc Viên",
     description:
-      "Trụ sở rộng lớn trải dài toàn quốc được đầu tư bài bản là điểm tựa để Maxhome vận hành bộ máy thiết kế chuyên nghiệp, từ khâu tư vấn đến triển khai bản vẽ.",
+      "Trụ sở rộng lớn trải dài toàn quốc được đầu tư bài bản là điểm tựa để Mộc Viên vận hành bộ máy thiết kế chuyên nghiệp, từ khâu tư vấn đến triển khai bản vẽ.",
     features: [
       "Nhóm khảo sát kỹ thuật",
       "Nhóm thiết kế kiến trúc",
@@ -32,7 +32,7 @@ export const aboutData = {
   },
 
   fengshui: {
-    title: "Bậc thầy phong thủy Maxhome",
+    title: "Bậc thầy phong thủy Mộc Viên",
     description:
       "Nghiên cứu sự ảnh hưởng của hướng gió, hướng khí, mạch nước đến đời sống và tài lộc của gia chủ.",
     features: [
