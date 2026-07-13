@@ -28,7 +28,7 @@ export const aboutData = {
       "Phòng phong thuỷ",
       "Phòng chăm sóc khách hàng",
     ],
-    image: "https://maxhomegroup.vn/wp-content/uploads/2024/11/chi-nhanh-Can-Tho.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/van_phong.png",
   },
 
   fengshui: {
@@ -41,7 +41,7 @@ export const aboutData = {
       "Dịch vụ phong thủy",
       "Thước lỗ ban",
     ],
-    image: "https://maxhomegroup.vn/wp-content/uploads/2026/04/banner-vuong-phong-thuy-2026-542x580.png",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/phong_thuy.png",
   },
 };
 
