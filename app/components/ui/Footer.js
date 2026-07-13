@@ -12,7 +12,7 @@ import {
 } from "react-icons/fa";
 
 const aboutLinks = [
-    "Giới thiệu MAXHOME",
+    "Giới thiệu Mộc Viên",
     "Tuyển dụng",
     "Chính sách bảo mật",
     "Liên hệ",
@@ -20,27 +20,12 @@ const aboutLinks = [
 
 const branches = [
     {
-        title: "MAXHOME MIỀN BẮC",
         items: [
             "Hội sở Hà Nội",
             "180 Vạn Phúc, Hà Đông, Hà Nội",
             "Tầng 25, Vinaconex Diamond, 459C Bạch Mai, Hà Nội",
         ],
-    },
-    {
-        title: "MAXHOME MIỀN TRUNG",
-        items: [
-            "Maxhome Thanh Hóa: Số 115 QL 47, Triệu Sơn, Thanh Hóa",
-            "Maxhome Đà Nẵng: 161 Phạm Văn, Sơn Trà, Đà Nẵng",
-            "Maxhome Hà Tĩnh: 28 Hà Hoàng, Thạch Trung, Hà Tĩnh",
-        ],
-    },
-    {
-        title: "MAXHOME TÂY NGUYÊN",
-        items: [
-            "Đắk Lắk: 34QL14, Hoà Khánh, TP. Buôn Ma Thuột",
-        ],
-    },
+    }
 ];
 
 export default function Footer() {
@@ -91,35 +76,27 @@ export default function Footer() {
                             </p>
                             <p className="flex items-center gap-2">
                                 <FaPhoneAlt className="text-yellow-400" />
-                                Hotline: 082.8001.569
-                            </p>
-                            <p className="flex items-center gap-2">
-                                <FaEnvelope className="text-yellow-400" />
-                                info@maxhomegroup.vn
+                                Hotline: 035.4136.968
                             </p>
                         </div>
 
                         {/* Social */}
                         <div className="mt-6 space-y-3">
                             <p className="flex items-center gap-2">
-                                <FaYoutube className="text-red-500 text-xl" />
-                                Youtube MAXHOMETV
-                            </p>
-                            <p className="flex items-center gap-2">
                                 <FaTiktok className="text-white text-xl" />
-                                TikTok nhadepmaxhome1
+                                TikTok Mộc Viên
                             </p>
-                            <p className="flex items-center gap-2">
+                            <a href="https://www.facebook.com/profile.php?id=61572452895218" className="flex items-center gap-2">
                                 <FaFacebook className="text-blue-400 text-xl" />
-                                Facebook Maxhome
-                            </p>
+                                Facebook Mộc Viên Group
+                            </a>
                         </div>
                     </div>
 
                     {/* CỘT 2 */}
                     <div>
                         <h3 className="text-yellow-400 font-bold text-lg mb-4 border-b border-yellow-400 pb-2">
-                            TRỤ SỞ VÀ CHI NHÁNH
+                            THÔNG TIN LIÊN HỆ
                         </h3>
 
                         {branches.map((branch, i) => (
@@ -149,15 +126,15 @@ export default function Footer() {
                         <div className="space-y-4 text-sm">
                             <p>
                                 <span className="text-yellow-400">Kỹ thuật:</span>{" "}
-                                08281.33333 (7:30 – 22:00)
+                                082.8001.569 (7:30 – 22:00)
                             </p>
                             <p>
                                 <span className="text-yellow-400">Khiếu nại:</span>{" "}
-                                09240.99999 (7:30 – 22:00)
+                                09240.59999 (7:30 – 22:00)
                             </p>
                             <p>
                                 <span className="text-yellow-400">Bảo hành:</span>{" "}
-                                09240.99999 (8:00 – 21:00)
+                                035.413.6968 (8:00 – 21:00)
                             </p>
                         </div>
                     </div>
