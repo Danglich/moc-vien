@@ -4,11 +4,11 @@ import Link from "next/link";
 export const menuData = [
   {
     label: "BÁO GIÁ THIẾT KẾ NHÀ",
-    url: "/bao-gia",
+    url: "/bao-gia-thiet-ke",
   },
   {
     label: "THIẾT KẾ NHÀ",
-    url: "/thiet-ke",
+    url: "/thiet-ke-nha",
   },
   {
     label: "MẪU NHÀ ĐẸP",
