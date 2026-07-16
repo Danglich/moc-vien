@@ -101,13 +101,13 @@ export default function BlogSlider() {
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="mb-6 flex items-center justify-between gap-3">
-          <h2 className="border-l-4 border-pm pl-5 text-4xl font-bold">
+          <h2 className="border-l-4 border-yellow-500 pl-4 text-2xl font-bold leading-tight text-gray-900 sm:text-3xl md:pl-5 md:text-4xl">
             Kinh nghiệm làm nhà
           </h2>
 
           <Link
             href="/bai-viet"
-            className="flex cursor-pointer items-center justify-center py-3 font-medium hover:text-primary"
+            className="flex cursor-pointer items-center justify-center text-sm md:text-base py-3 font-medium hover:text-primary"
           >
             Xem thêm
           </Link>
