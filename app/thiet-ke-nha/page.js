@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import RelatedProjects from "../components/ui/RelatedProjects";
 
 export const metadata = {
   title: "Thiết kế nhà | Mộc Viên Group",
@@ -491,165 +492,23 @@ export default function HouseDesignPage() {
     <section className="bg-gray-950 py-16 md:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
-            <div className="max-w-3xl">
-                <span className="text-sm font-bold uppercase tracking-[0.2em] text-yellow-500">
-                Công trình nổi bật
-                </span>
+              <div className="max-w-3xl">
+                  <span className="text-sm font-bold uppercase tracking-[0.2em] text-yellow-500">
+                  Công trình nổi bật
+                  </span>
 
-                <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-4xl">
-                6 mẫu nhà được quan tâm nhiều nhất hiện nay
-                </h2>
+                  <h2 className="mt-4 text-3xl font-extrabold leading-tight text-white md:text-4xl">
+                  6 mẫu nhà được quan tâm nhiều nhất hiện nay
+                  </h2>
 
-                <p className="mt-5 max-w-2xl leading-8 text-gray-400">
-                Tham khảo những mẫu nhà nổi bật được Mộc Viên thiết kế dựa trên nhu
-                cầu sử dụng, diện tích đất và mức đầu tư thực tế của từng gia đình.
-                </p>
+                  <p className="mt-5 max-w-2xl leading-8 text-gray-400">
+                  Tham khảo những mẫu nhà nổi bật được Mộc Viên thiết kế dựa trên nhu
+                  cầu sử dụng, diện tích đất và mức đầu tư thực tế của từng gia đình.
+                  </p>
+              </div>
+
             </div>
-
-            <Link
-                href="/du-an"
-                className="inline-flex shrink-0 items-center gap-2 font-bold text-yellow-500 transition hover:text-yellow-400"
-            >
-                Xem tất cả dự án
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                >
-                <path d="M5 12h14" />
-                <path d="m13 6 6 6-6 6" />
-                </svg>
-            </Link>
-            </div>
-
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {hotHouseModels.map((house) => (
-                <article
-                key={house.id}
-                className="group overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 transition duration-300 hover:-translate-y-2 hover:border-yellow-500 hover:shadow-2xl hover:shadow-yellow-500/10"
-                >
-                <Link
-                    href={`/du-an/${house.slug}`}
-                    className="block"
-                    aria-label={`Xem chi tiết ${house.title}`}
-                >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-gray-800">
-                    <Image
-                        src={house.image}
-                        alt={house.title}
-                        fill
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover transition duration-700 group-hover:scale-110"
-                    />
-
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-950/10 to-transparent" />
-
-                    <span className="absolute left-4 top-4 rounded-full bg-yellow-500 px-3 py-1.5 text-xs font-bold text-gray-950 shadow-lg">
-                        {house.category}
-                    </span>
-
-                    <div className="absolute bottom-4 left-4 flex items-center gap-2 rounded-lg bg-white/95 px-3 py-2 shadow-lg backdrop-blur-sm">
-                        <div className="relative h-8 w-8 shrink-0">
-                        <Image
-                            src="/images/logo-moc-vien.png"
-                            alt="Logo Mộc Viên"
-                            fill
-                            sizes="32px"
-                            className="object-contain"
-                        />
-                        </div>
-
-                        <div>
-                        <span className="block text-[10px] font-semibold uppercase tracking-wider text-gray-500">
-                            Thiết kế bởi
-                        </span>
-                        <span className="block text-xs font-extrabold text-gray-900">
-                            Mộc Viên Group
-                        </span>
-                        </div>
-                    </div>
-
-                    <span className="absolute bottom-4 right-4 flex h-10 w-10 translate-x-3 items-center justify-center rounded-full bg-yellow-500 text-gray-950 opacity-0 shadow-lg transition duration-300 group-hover:translate-x-0 group-hover:opacity-100">
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="19"
-                        height="19"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        >
-                        <path d="M5 12h14" />
-                        <path d="m13 6 6 6-6 6" />
-                        </svg>
-                    </span>
-                    </div>
-
-                    <div className="p-6">
-                    <div className="mb-3 flex items-center justify-between gap-4">
-                        <span className="flex items-center gap-2 text-sm text-gray-400">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            className="text-yellow-500"
-                        >
-                            <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
-                            <circle cx="12" cy="10" r="3" />
-                        </svg>
-
-                        {house.location}
-                        </span>
-
-                        <span className="text-xs font-bold uppercase tracking-wider text-yellow-500">
-                        Mẫu nổi bật
-                        </span>
-                    </div>
-
-                    <h3 className="line-clamp-2 text-xl font-bold leading-7 text-white transition group-hover:text-yellow-500">
-                        {house.title}
-                    </h3>
-
-                    <div className="mt-5 flex items-center justify-between border-t border-gray-800 pt-4">
-                        <span className="text-sm font-semibold text-gray-400">
-                        Xem chi tiết công trình
-                        </span>
-
-                        <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="19"
-                        height="19"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="text-yellow-500 transition group-hover:translate-x-1"
-                        >
-                        <path d="M5 12h14" />
-                        <path d="m13 6 6 6-6 6" />
-                        </svg>
-                    </div>
-                    </div>
-                </Link>
-                </article>
-            ))}
-            </div>
+            <RelatedProjects />
 
             <div className="mt-10 text-center md:hidden">
             <Link
