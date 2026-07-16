@@ -59,9 +59,18 @@ export default function DesignPricePage() {
     };
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = selectedImage ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage]);
+
   return (
     <>
       <main className="price-page">
+        {/* Phần giới thiệu */}
         <section className="hero-section">
           <div className="container hero-container">
             <span className="sub-title">Mộc Viên Group</span>
@@ -85,18 +94,22 @@ export default function DesignPricePage() {
           </div>
         </section>
 
+        {/* Bảng giá thiết kế */}
         <section id="bang-gia" className="price-section">
           <div className="container">
             <div className="section-heading">
               <span>Bảng giá dịch vụ</span>
+
               <h2>Chi phí thiết kế tại Mộc Viên</h2>
+
               <p>
                 Chi phí thực tế có thể thay đổi tùy theo diện tích, phong cách
                 kiến trúc và yêu cầu chi tiết của công trình.
               </p>
             </div>
 
-            <div
+            <button
+              type="button"
               className="price-image-wrapper"
               onClick={() =>
                 setSelectedImage({
@@ -104,6 +117,7 @@ export default function DesignPricePage() {
                   image: "/images/bang-gia-thiet-ke.png",
                 })
               }
+              aria-label="Xem chi tiết bảng giá thiết kế"
             >
               <Image
                 src="/images/bang-gia-thiet-ke.png"
@@ -111,18 +125,19 @@ export default function DesignPricePage() {
                 width={973}
                 height={797}
                 priority
-                sizes="(max-width: 768px) 100vw, 1200px"
+                sizes="(max-width: 768px) 100vw, 1180px"
                 className="price-image"
               />
 
-              <div className="zoom-note">Bấm vào ảnh để xem rõ hơn</div>
-            </div>
+              <span className="zoom-note">Bấm vào ảnh để xem rõ hơn</span>
+            </button>
 
             <div className="price-note">
               <div className="note-icon">!</div>
 
               <div>
                 <h3>Lưu ý về bảng giá</h3>
+
                 <p>
                   Báo giá trên mang tính tham khảo. Mộc Viên sẽ khảo sát, tiếp
                   nhận nhu cầu và gửi báo giá chi tiết trước khi ký hợp đồng.
@@ -132,11 +147,14 @@ export default function DesignPricePage() {
           </div>
         </section>
 
+        {/* Danh sách hợp đồng */}
         <section className="contracts-section">
           <div className="container">
             <div className="section-heading">
               <span>Khách hàng tin tưởng</span>
+
               <h2>Một số hợp đồng đã ký kết</h2>
+
               <p>
                 Hình ảnh các hợp đồng thiết kế và thi công đã được Mộc Viên ký
                 kết với khách hàng.
@@ -172,11 +190,14 @@ export default function DesignPricePage() {
           </div>
         </section>
 
+        {/* Liên hệ */}
         <section className="contact-section">
           <div className="container contact-box">
-            <div>
+            <div className="contact-content">
               <span>Tư vấn thiết kế miễn phí</span>
+
               <h2>Bạn đang chuẩn bị xây nhà?</h2>
+
               <p>
                 Liên hệ Mộc Viên để được tư vấn công năng, phong cách kiến trúc
                 và dự toán chi phí phù hợp.
@@ -190,6 +211,7 @@ export default function DesignPricePage() {
         </section>
       </main>
 
+      {/* Modal xem ảnh */}
       {selectedImage && (
         <div
           className="modal-overlay"
@@ -240,14 +262,24 @@ export default function DesignPricePage() {
         }
 
         .price-page {
-          background: #ffffff;
+          --primary: #eab308;
+          --primary-hover: #ca8a04;
+          --primary-dark: #854d0e;
+          --primary-darker: #713f12;
+          --primary-light: #fef9c3;
+          --primary-lighter: #fefce8;
+          --primary-border: #fde047;
+
           color: #1f2937;
+          background: #ffffff;
         }
 
         .container {
           width: min(1180px, calc(100% - 40px));
           margin: 0 auto;
         }
+
+        /* Hero */
 
         .hero-section {
           position: relative;
@@ -257,10 +289,15 @@ export default function DesignPricePage() {
           background:
             radial-gradient(
               circle at top left,
-              rgba(245, 158, 11, 0.18),
+              rgba(234, 179, 8, 0.2),
               transparent 35%
             ),
-            linear-gradient(135deg, #fffaf0 0%, #ffffff 55%, #fdf2f2 100%);
+            linear-gradient(
+              135deg,
+              #fefce8 0%,
+              #ffffff 55%,
+              #fef9c3 100%
+            );
         }
 
         .hero-section::before,
@@ -268,6 +305,7 @@ export default function DesignPricePage() {
           position: absolute;
           border-radius: 999px;
           content: "";
+          pointer-events: none;
         }
 
         .hero-section::before {
@@ -275,7 +313,7 @@ export default function DesignPricePage() {
           right: -100px;
           width: 320px;
           height: 320px;
-          background: rgba(185, 28, 28, 0.07);
+          background: rgba(234, 179, 8, 0.1);
         }
 
         .hero-section::after {
@@ -283,7 +321,7 @@ export default function DesignPricePage() {
           left: -100px;
           width: 300px;
           height: 300px;
-          background: rgba(245, 158, 11, 0.1);
+          background: rgba(234, 179, 8, 0.14);
         }
 
         .hero-container {
@@ -297,7 +335,7 @@ export default function DesignPricePage() {
         .contact-box span {
           display: block;
           margin-bottom: 12px;
-          color: #b91c1c;
+          color: var(--primary-dark);
           font-size: 14px;
           font-weight: 700;
           letter-spacing: 1.5px;
@@ -306,7 +344,7 @@ export default function DesignPricePage() {
 
         .hero-section h1 {
           margin: 0;
-          color: #7f1d1d;
+          color: var(--primary-darker);
           font-size: clamp(36px, 6vw, 62px);
           line-height: 1.12;
         }
@@ -341,34 +379,41 @@ export default function DesignPricePage() {
           transition:
             transform 0.25s ease,
             box-shadow 0.25s ease,
+            color 0.25s ease,
+            border-color 0.25s ease,
             background 0.25s ease;
         }
 
         .primary-button {
-          color: #ffffff;
-          background: #b91c1c;
-          box-shadow: 0 12px 30px rgba(185, 28, 28, 0.22);
+          color: #422006;
+          background: var(--primary);
+          box-shadow: 0 12px 30px rgba(234, 179, 8, 0.28);
+        }
+
+        .primary-button:hover {
+          background: var(--primary-hover);
+          box-shadow: 0 15px 35px rgba(202, 138, 4, 0.32);
+          transform: translateY(-3px);
         }
 
         .secondary-button {
-          border: 1px solid #b91c1c;
-          color: #b91c1c;
+          border: 1px solid var(--primary);
+          color: var(--primary-dark);
           background: #ffffff;
         }
 
-        .primary-button:hover,
-        .secondary-button:hover,
-        .contact-button:hover {
+        .secondary-button:hover {
+          border-color: var(--primary-hover);
+          color: var(--primary-darker);
+          background: var(--primary-lighter);
           transform: translateY(-3px);
         }
+
+        /* Bảng giá */
 
         .price-section,
         .contracts-section {
           padding: 80px 0;
-        }
-
-        .contracts-section {
-          background: #fafafa;
         }
 
         .section-heading {
@@ -393,12 +438,14 @@ export default function DesignPricePage() {
 
         .price-image-wrapper {
           position: relative;
+          display: block;
+          width: 100%;
           overflow: hidden;
           padding: 12px;
-          border: 1px solid #ead7b8;
+          border: 1px solid rgba(234, 179, 8, 0.35);
           border-radius: 16px;
           background: #ffffff;
-          box-shadow: 0 20px 60px rgba(79, 47, 20, 0.12);
+          box-shadow: 0 20px 60px rgba(113, 63, 18, 0.12);
           cursor: zoom-in;
         }
 
@@ -415,10 +462,10 @@ export default function DesignPricePage() {
           bottom: 25px;
           padding: 10px 15px;
           border-radius: 999px;
-          color: #ffffff;
-          background: rgba(17, 24, 39, 0.78);
+          color: #422006;
+          background: rgba(234, 179, 8, 0.94);
           font-size: 13px;
-          font-weight: 600;
+          font-weight: 700;
           backdrop-filter: blur(8px);
         }
 
@@ -427,9 +474,9 @@ export default function DesignPricePage() {
           gap: 16px;
           margin-top: 25px;
           padding: 22px;
-          border-left: 4px solid #f59e0b;
+          border-left: 4px solid var(--primary);
           border-radius: 10px;
-          background: #fffbeb;
+          background: var(--primary-lighter);
         }
 
         .note-icon {
@@ -440,21 +487,27 @@ export default function DesignPricePage() {
           width: 34px;
           height: 34px;
           border-radius: 50%;
-          color: #ffffff;
-          background: #f59e0b;
+          color: #422006;
+          background: var(--primary);
           font-weight: 800;
         }
 
         .price-note h3 {
           margin: 0 0 6px;
-          color: #92400e;
+          color: var(--primary-darker);
           font-size: 17px;
         }
 
         .price-note p {
           margin: 0;
-          color: #78350f;
+          color: #713f12;
           line-height: 1.7;
+        }
+
+        /* Hợp đồng */
+
+        .contracts-section {
+          background: #fafafa;
         }
 
         .contract-grid {
@@ -471,12 +524,14 @@ export default function DesignPricePage() {
           box-shadow: 0 12px 35px rgba(17, 24, 39, 0.07);
           transition:
             transform 0.3s ease,
+            border-color 0.3s ease,
             box-shadow 0.3s ease;
         }
 
         .contract-card:hover {
+          border-color: rgba(234, 179, 8, 0.45);
+          box-shadow: 0 20px 45px rgba(113, 63, 18, 0.14);
           transform: translateY(-6px);
-          box-shadow: 0 20px 45px rgba(17, 24, 39, 0.12);
         }
 
         .contract-image {
@@ -507,10 +562,11 @@ export default function DesignPricePage() {
           z-index: 1;
           padding: 9px 14px;
           border-radius: 999px;
-          color: #ffffff;
-          background: rgba(185, 28, 28, 0.9);
+          color: #422006;
+          background: rgba(234, 179, 8, 0.95);
           font-size: 13px;
           font-weight: 700;
+          box-shadow: 0 6px 20px rgba(66, 32, 6, 0.18);
         }
 
         .contract-content {
@@ -530,6 +586,8 @@ export default function DesignPricePage() {
           font-size: 14px;
         }
 
+        /* Liên hệ */
+
         .contact-section {
           padding: 30px 0 80px;
           background: #fafafa;
@@ -542,38 +600,50 @@ export default function DesignPricePage() {
           gap: 40px;
           padding: 45px 50px;
           border-radius: 18px;
-          color: #ffffff;
-          background:
-            linear-gradient(
-              120deg,
-              rgba(127, 29, 29, 0.98),
-              rgba(185, 28, 28, 0.94)
-            ),
-            #b91c1c;
-          box-shadow: 0 20px 50px rgba(127, 29, 29, 0.2);
+          color: #422006;
+          background: linear-gradient(
+            120deg,
+            var(--primary-hover),
+            var(--primary)
+          );
+          box-shadow: 0 20px 50px rgba(234, 179, 8, 0.26);
+        }
+
+        .contact-content {
+          max-width: 720px;
         }
 
         .contact-box span {
-          color: #fde68a;
+          color: #422006;
         }
 
         .contact-box h2 {
           margin: 0;
+          color: #422006;
           font-size: clamp(26px, 4vw, 38px);
         }
 
         .contact-box p {
           max-width: 680px;
           margin: 14px 0 0;
-          color: rgba(255, 255, 255, 0.85);
+          color: rgba(66, 32, 6, 0.88);
           line-height: 1.7;
         }
 
         .contact-button {
           flex-shrink: 0;
-          color: #7f1d1d;
+          color: var(--primary-darker);
           background: #ffffff;
+          box-shadow: 0 10px 30px rgba(66, 32, 6, 0.14);
         }
+
+        .contact-button:hover {
+          color: #422006;
+          background: var(--primary-lighter);
+          transform: translateY(-3px);
+        }
+
+        /* Modal */
 
         .modal-overlay {
           position: fixed;
@@ -625,14 +695,26 @@ export default function DesignPricePage() {
           justify-content: center;
           width: 42px;
           height: 42px;
+          padding: 0;
           border: 2px solid #ffffff;
           border-radius: 50%;
-          color: #ffffff;
-          background: #b91c1c;
+          color: #422006;
+          background: var(--primary);
           font-size: 30px;
           line-height: 1;
           cursor: pointer;
+          box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+          transition:
+            transform 0.2s ease,
+            background 0.2s ease;
         }
+
+        .modal-close:hover {
+          background: var(--primary-hover);
+          transform: scale(1.08);
+        }
+
+        /* Tablet */
 
         @media (max-width: 900px) {
           .contract-grid {
@@ -644,6 +726,8 @@ export default function DesignPricePage() {
             flex-direction: column;
           }
         }
+
+        /* Mobile */
 
         @media (max-width: 640px) {
           .container {
