@@ -1,5 +1,5 @@
+import { supabase } from "@/app/lib/supabase";
 export default async function Page() {
-  const supabase = await createClient();
 
   // Giá trị này phải trùng với một phần tử trong cột types
   const type = "Thiết kế nhà vườn";
