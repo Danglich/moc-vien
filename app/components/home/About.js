@@ -1,4 +1,4 @@
-import { Check, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 
 export const aboutData = {
   intro: {
@@ -11,11 +11,12 @@ export const aboutData = {
       "Tiêu chuẩn chất lượng, kiểm duyệt nghiêm ngặt",
     ],
     stats: [
-      { value: "10+", label: "năm kinh nghiệm" },
+      { value: "10+", label: "Năm kinh nghiệm" },
       { value: "1000+", label: "Khách hàng yêu thích" },
-      { value: "5.000+", label: "Đánh giá tích cực và trải nghiệm" },
+      { value: "5.000+", label: "Đánh giá tích cực" },
     ],
-    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/anh-van-phong.png",
+    image:
+      "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/anh-van-phong.png",
   },
 
   office: {
@@ -28,7 +29,8 @@ export const aboutData = {
       "Tối ưu công năng sử dụng",
       "Cá nhân hóa theo nhu cầu gia chủ",
     ],
-    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/van_phong.png",
+    image:
+      "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/van_phong.png",
   },
 
   fengshui: {
@@ -41,121 +43,147 @@ export const aboutData = {
       "Dịch vụ phong thủy",
       "Thước lỗ ban",
     ],
-    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/phong_thuy_2.png",
+    image:
+      "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/phong_thuy_2.png",
   },
 };
 
 export default function AboutSection() {
   return (
-    <div className="container mx-auto px-4 py-10 space-y-20 text-[18px]">
-      
-      {/* SECTION 1 */}
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        
-        {/* LEFT */}
-        <div>
-          <h2 className="text-4xl font-semibold mb-8 border-l-4 border-pm pl-4">
-            {aboutData.intro.title}
-          </h2>
+    <section className="bg-white">
+      <div className="container mx-auto space-y-14 px-4 py-10 text-base sm:px-6 md:space-y-20 md:py-16 md:text-[18px] lg:px-8">
+        {/* SECTION 1 */}
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+          {/* LEFT */}
+          <div>
+            <SectionTitle>{aboutData.intro.title}</SectionTitle>
 
-          <p className="text-gray-600 mb-6">
-            {aboutData.intro.description}
-          </p>
+            <p className="mb-6 text-sm leading-7 text-gray-600 sm:text-base md:text-[18px] md:leading-8">
+              {aboutData.intro.description}
+            </p>
 
-          <ul className="space-y-5 mb-8">
-            {aboutData.intro.features.map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-gray-700">
-                <ShieldCheck  className="w-10 h-10 text-green-600" />
-                {item}
-              </li>
-            ))}
-          </ul>
+            <FeatureList items={aboutData.intro.features} />
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-6">
-            {aboutData.intro.stats.map((stat, i) => (
-              <div key={i} className="border-l-5 border-yellow-500 pl-3">
-                <p className="text-[40px] font-bold mb-2">{stat.value}</p>
-                <p className="text-gray-600">{stat.label}</p>
-              </div>
-            ))}
+            {/* Stats */}
+            <div className="mt-8 grid grid-cols-1 gap-4 min-[430px]:grid-cols-3 md:gap-6">
+              {aboutData.intro.stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="rounded-lg border border-yellow-100 bg-yellow-50/60 px-4 py-4 min-[430px]:rounded-none min-[430px]:border-0 min-[430px]:border-l-4 min-[430px]:border-yellow-500 min-[430px]:bg-transparent min-[430px]:px-3 min-[430px]:py-0"
+                >
+                  <p className="mb-1 text-3xl font-bold leading-none text-gray-900 sm:text-4xl md:mb-2 md:text-[40px]">
+                    {stat.value}
+                  </p>
+
+                  <p className="text-sm leading-5 text-gray-600 md:text-base">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* RIGHT */}
+          <div className="relative overflow-hidden rounded-xl bg-gray-100 shadow-sm">
+            <div className="relative aspect-[4/3] md:aspect-auto md:min-h-[460px]">
+              <img
+                src={aboutData.intro.image}
+                alt="Giới thiệu văn phòng Mộc Viên"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+
+              <div className="absolute inset-0 bg-black/10" />
+
+              {/* Play button */}
+              <button
+                type="button"
+                aria-label="Xem video giới thiệu Mộc Viên"
+                className="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-yellow-500 text-lg text-gray-950 shadow-xl transition hover:scale-110 hover:bg-yellow-400 md:h-16 md:w-16"
+              >
+                <span className="ml-1">▶</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        {/* RIGHT */}
-        <div className="relative">
-          <img
-            src={aboutData.intro.image}
-            className="w-full rounded-lg object-cover"
-          />
-          {/* Play button */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center cursor-pointer">
-              ▶
+        {/* SECTION 2 */}
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+          {/* LEFT IMAGE */}
+          <div className="order-2 overflow-hidden rounded-xl bg-gray-100 shadow-sm md:order-1">
+            <div className="aspect-[4/3] md:aspect-auto md:min-h-[480px]">
+              <img
+                src={aboutData.office.image}
+                alt="Đội ngũ thiết kế Mộc Viên"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
+            </div>
+          </div>
+
+          {/* RIGHT TEXT */}
+          <div className="order-1 md:order-2">
+            <SectionTitle>{aboutData.office.title}</SectionTitle>
+
+            <p className="mb-6 text-sm leading-7 text-gray-600 sm:text-base md:text-[18px] md:leading-8">
+              {aboutData.office.description}
+            </p>
+
+            <FeatureList items={aboutData.office.features} />
+          </div>
+        </div>
+
+        {/* SECTION 3 */}
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+          {/* LEFT TEXT */}
+          <div>
+            <SectionTitle>{aboutData.fengshui.title}</SectionTitle>
+
+            <FeatureList items={aboutData.fengshui.features} />
+
+            <p className="mt-6 text-sm leading-7 text-gray-600 sm:text-base md:text-[18px] md:leading-8">
+              {aboutData.fengshui.description}
+            </p>
+          </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="overflow-hidden rounded-xl bg-gray-100 shadow-sm">
+            <div className="aspect-[4/3] md:aspect-auto md:min-h-[460px]">
+              <img
+                src={aboutData.fengshui.image}
+                alt="Tư vấn phong thủy Mộc Viên"
+                loading="lazy"
+                className="h-full w-full object-cover"
+              />
             </div>
           </div>
         </div>
       </div>
+    </section>
+  );
+}
 
-      {/* SECTION 2 */}
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        
-        {/* LEFT IMAGE */}
-        <img
-          src={aboutData.office.image}
-          className="w-full rounded-lg object-cover"
-        />
+function SectionTitle({ children }) {
+  return (
+    <h2 className="mb-6 border-l-4 border-yellow-500 pl-4 text-2xl font-semibold leading-tight text-gray-900 sm:text-3xl md:mb-8 md:text-4xl">
+      {children}
+    </h2>
+  );
+}
 
-        {/* RIGHT TEXT */}
-        <div>
-          <h2 className="text-4xl font-semibold mb-8 border-l-4 border-pm pl-4">
-            {aboutData.office.title}
-          </h2>
+function FeatureList({ items }) {
+  return (
+    <ul className="space-y-4 md:space-y-5">
+      {items.map((item) => (
+        <li
+          key={item}
+          className="flex items-start gap-3 text-sm leading-6 text-gray-700 sm:text-base md:text-[18px] md:leading-7"
+        >
+          <ShieldCheck className="mt-0.5 h-6 w-6 shrink-0 text-green-600 sm:h-7 sm:w-7 md:h-8 md:w-8" />
 
-          <p className="text-gray-600 mb-6">
-            {aboutData.office.description}
-          </p>
-
-          <ul className="space-y-3">
-            {aboutData.office.features.map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-gray-700 mb-6">
-                <ShieldCheck  className="w-10 h-10 text-green-600" />
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      {/* SECTION 3 */}
-      <div className="grid md:grid-cols-2 gap-10 items-center">
-        
-        {/* LEFT TEXT */}
-        <div>
-          <h2 className="text-4xl font-semibold mb-8 border-l-4 border-pm pl-4">
-            {aboutData.fengshui.title}
-          </h2>
-
-          <ul className="space-y-3 mb-6">
-            {aboutData.fengshui.features.map((item, i) => (
-              <li key={i} className="flex items-center gap-3 text-gray-700 mb-6">
-                <ShieldCheck  className="w-10 h-10 text-green-600" />
-                {item}
-              </li>
-            ))}
-          </ul>
-
-          <p className="text-gray-600">
-            {aboutData.fengshui.description}
-          </p>
-        </div>
-
-        {/* RIGHT IMAGE */}
-        <img
-          src={aboutData.fengshui.image}
-          className="w-full rounded-lg object-cover"
-        />
-      </div>
-    </div>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
