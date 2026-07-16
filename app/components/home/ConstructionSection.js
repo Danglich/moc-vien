@@ -136,7 +136,7 @@ export default function ConstructionSection() {
 
       {/* Button */}
       {!loading && projects.length > 0 && (
-        <div className="flex justify-center mt-5">
+        <div className="flex justify-center mt-4 md:mt-5">
           <Link
             href={`/du-an?type=${encodeURIComponent(
               "Công trình đang thi công"

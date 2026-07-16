@@ -51,9 +51,9 @@ export const aboutData = {
 export default function AboutSection() {
   return (
     <section className="bg-white">
-      <div className="container mx-auto space-y-14 px-4 py-10 text-base sm:px-6 md:space-y-20 md:py-16 md:text-[18px] lg:px-8">
+      <div className="container mx-auto space-y-14 px-4 py-4 text-base sm:px-6 md:space-y-20 md:py-16 md:text-[18px] lg:px-8">
         {/* SECTION 1 */}
-        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 mb-5">
           {/* LEFT */}
           <div>
             <SectionTitle>{aboutData.intro.title}</SectionTitle>
@@ -108,7 +108,7 @@ export default function AboutSection() {
         </div>
 
         {/* SECTION 2 */}
-        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 mb-5">
           {/* LEFT IMAGE */}
           <div className="order-2 overflow-hidden rounded-xl bg-gray-100 shadow-sm md:order-1">
             <div className="aspect-[4/3] md:aspect-auto md:min-h-[480px]">
@@ -134,7 +134,7 @@ export default function AboutSection() {
         </div>
 
         {/* SECTION 3 */}
-        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10">
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-10 mb-5">
           {/* LEFT TEXT */}
           <div>
             <SectionTitle>{aboutData.fengshui.title}</SectionTitle>
