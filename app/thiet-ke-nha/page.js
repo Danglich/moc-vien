@@ -508,7 +508,7 @@ export default function HouseDesignPage() {
 
               <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-3xl bg-gray-100 shadow-xl">
                 <img
-                  src="/images/thiet-ke-nha/quy-trinh-thiet-ke.jpg"
+                  src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/quy_trinh.png"
                   alt="Quy trình tư vấn và thiết kế nhà ở"
                   fill
                   sizes="(max-width: 1024px) 100vw, 40vw"
