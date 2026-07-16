@@ -1,4 +1,5 @@
 import { supabase } from "@/app/lib/supabase";
+import ProjectGrid from "../components/ui/ProjectGrid";
 export default async function Page() {
 
   // Giá trị này phải trùng với một phần tử trong cột types
