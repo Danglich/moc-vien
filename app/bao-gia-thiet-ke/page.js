@@ -8,37 +8,37 @@ const contractImages = [
     id: 1,
     title: "Hợp đồng thiết kế nhà mái Nhật",
     customer: "Khách hàng tại Nghệ An",
-    image: "/images/hop-dong/hop-dong-01.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/hop_dong_1.jpg",
   },
   {
     id: 2,
     title: "Hợp đồng thiết kế nhà phố",
     customer: "Khách hàng tại Hà Tĩnh",
-    image: "/images/hop-dong/hop-dong-02.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/hop_dong_1.jpg",
   },
   {
     id: 3,
     title: "Hợp đồng thiết kế nhà vườn",
     customer: "Khách hàng tại TP. Vinh",
-    image: "/images/hop-dong/hop-dong-03.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/hop_dong_1.jpg",
   },
   {
     id: 4,
     title: "Hợp đồng thiết kế biệt thự",
     customer: "Khách hàng tại Diễn Châu",
-    image: "/images/hop-dong/hop-dong-04.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/hop_dong_1.jpg",
   },
   {
     id: 5,
     title: "Hợp đồng thiết kế nhà 2 tầng",
     customer: "Khách hàng tại Cửa Lò",
-    image: "/images/hop-dong/hop-dong-05.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/hop_dong_1.jpg",
   },
   {
     id: 6,
     title: "Hợp đồng thiết kế và giám sát",
     customer: "Khách hàng tại Nam Đàn",
-    image: "/images/hop-dong/hop-dong-06.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/hop_dong_1.jpg",
   },
 ];
 
