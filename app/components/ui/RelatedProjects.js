@@ -1,9 +1,8 @@
+import { supabase } from "@/app/lib/supabase";
 import Image from "next/image";
 import Link from "next/link";
-import { createClient } from "@/utils/supabase/server";
 
 export default async function RelatedProjects() {
-  const supabase = await createClient();
 
   const { data, error } = await supabase
     .from("projects")
