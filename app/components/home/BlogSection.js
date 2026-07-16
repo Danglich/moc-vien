@@ -1,47 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import Link from "next/link";
+import { useCallback, useEffect, useRef, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 
-const posts = [
-  {
-    id: 1,
-    title:
-      "Vì sao xây nhà hay phát sinh chi phí? 7 nguyên nhân gia chủ cần biết",
-    image:
-      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
-  },
-  {
-    id: 2,
-    title:
-      "7 Cách thiết kế nhà đẹp mà vẫn tiết kiệm 30% chi phí",
-    image:
-      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
-  },
-  {
-    id: 3,
-    title:
-      "Thiết kế điện nước mất bao lâu? Quy trình và những hạng mục cần biết",
-    image:
-      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
-  },
-  {
-    id: 4,
-    title:
-      "Kinh nghiệm chọn vật liệu xây dựng tiết kiệm và bền đẹp",
-    image:
-      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
-  },
-  {
-    id: 5,
-    title:
-      "Top 5 mẫu nhà hiện đại được ưa chuộng nhất 2025",
-    image:
-      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
-  },
-];
-
 export default function BlogSlider() {
+  const sectionRef = useRef(null);
+  const hasLoadedRef = useRef(false);
+
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
+
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -50,10 +20,68 @@ export default function BlogSlider() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState([]);
 
-  // 👉 setup dots
+  const fetchBlogs = useCallback(async () => {
+    if (hasLoadedRef.current) return;
+
+    hasLoadedRef.current = true;
+    setIsLoading(true);
+    setError("");
+
+    try {
+      const response = await fetch("/api/blogs/latest", {
+        method: "GET",
+        cache: "no-store",
+      });
+
+      if (!response.ok) {
+        throw new Error("Không thể tải danh sách bài viết");
+      }
+
+      const result = await response.json();
+
+      setPosts(Array.isArray(result.blogs) ? result.blogs : []);
+    } catch (error) {
+      console.error("Lỗi tải blog:", error);
+      setError("Không thể tải bài viết. Vui lòng thử lại sau.");
+    } finally {
+      setIsLoading(false);
+    }
+  }, []);
+
+  // Khi còn cách section 1000px thì bắt đầu tải dữ liệu
+  useEffect(() => {
+    const sectionElement = sectionRef.current;
+
+    if (!sectionElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+
+        if (entry.isIntersecting) {
+          fetchBlogs();
+          observer.disconnect();
+        }
+      },
+      {
+        root: null,
+        rootMargin: "1000px 0px",
+        threshold: 0,
+      }
+    );
+
+    observer.observe(sectionElement);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [fetchBlogs]);
+
+  // Cập nhật lại Embla sau khi dữ liệu blog được tải
   useEffect(() => {
     if (!emblaApi) return;
 
+    emblaApi.reInit();
     setScrollSnaps(emblaApi.scrollSnapList());
 
     const onSelect = () => {
@@ -66,65 +94,127 @@ export default function BlogSlider() {
     return () => {
       emblaApi.off("select", onSelect);
     };
-  }, [emblaApi]);
+  }, [emblaApi, posts]);
 
   return (
-    <section className="py-12 bg-white">
+    <section ref={sectionRef} className="bg-white py-12">
       <div className="container mx-auto px-4">
-        
         {/* Title */}
-        <div className="flex items-center gap-3 mb-6 justify-between">
-          <h2 className="text-4xl font-bold border-l-4 border-pm pl-5">
+        <div className="mb-6 flex items-center justify-between gap-3">
+          <h2 className="border-l-4 border-pm pl-5 text-4xl font-bold">
             Kinh nghiệm làm nhà
           </h2>
-          <a className="flex items-center justify-center py-3 font-medium hover:text-primary cursor-pointer">
+
+          <Link
+            href="/bai-viet"
+            className="flex cursor-pointer items-center justify-center py-3 font-medium hover:text-primary"
+          >
             Xem thêm
-          </a>
+          </Link>
         </div>
+
+        {/* Loading */}
+        {isLoading && <BlogSkeleton />}
+
+        {/* Error */}
+        {!isLoading && error && (
+          <div className="rounded-lg border border-red-200 bg-red-50 px-5 py-8 text-center text-red-600">
+            {error}
+          </div>
+        )}
 
         {/* Slider */}
-        <div className="overflow-hidden" ref={emblaRef}>
-          <div className="flex">
-            {posts.map((post) => (
-              <div
-                key={post.id}
-                className="flex-[0_0_100%] md:flex-[0_0_calc((100%-48px)/3)] ml-4 shadow"
-              >
-                <div className="cursor-pointer group">
-                  
-                  <div className="overflow-hidden rounded-lg mb-4">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-[240px] object-cover transition duration-300 group-hover:scale-105"
-                    />
+        {!isLoading && !error && posts.length > 0 && (
+          <>
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {posts.map((post) => (
+                  <div
+                    key={post.id}
+                    className="ml-4 flex-[0_0_100%] shadow md:flex-[0_0_calc((100%-48px)/3)]"
+                  >
+                    <BlogCard post={post} />
                   </div>
-
-                  <h3 className="font-semibold text-gray-800 group-hover:text-yellow-600 transition">
-                    {post.title}
-                  </h3>
-                </div>
+                ))}
               </div>
-            ))}
+            </div>
+
+            {/* Dots */}
+            {scrollSnaps.length > 1 && (
+              <div className="mt-6 flex justify-center gap-2">
+                {scrollSnaps.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    aria-label={`Chuyển đến slide ${index + 1}`}
+                    onClick={() => emblaApi?.scrollTo(index)}
+                    className={`h-2.5 w-2.5 rounded-full transition ${
+                      index === selectedIndex
+                        ? "bg-primary"
+                        : "bg-gray-300"
+                    }`}
+                  />
+                ))}
+              </div>
+            )}
+          </>
+        )}
+
+        {/* Empty */}
+        {!isLoading && !error && hasLoadedRef.current && posts.length === 0 && (
+          <div className="rounded-lg bg-gray-50 px-5 py-10 text-center text-gray-500">
+            Chưa có bài viết nào.
           </div>
-        </div>
-
-        {/* 👉 DOTS */}
-        <div className="flex justify-center mt-6 gap-2">
-          {scrollSnaps.map((_, index) => (
-            <button
-              key={index}
-              onClick={() => emblaApi && emblaApi.scrollTo(index)}
-              className={`w-2.5 h-2.5 rounded-full transition ${
-                index === selectedIndex
-                  ? "bg-primary"
-                  : "bg-gray-300"
-              }`}
-            />
-          ))}
-        </div>
-
+        )}
       </div>
     </section>
+  );
+}
+
+function BlogCard({ post }) {
+  return (
+    <Link
+      href={`/bai-viet/${post.slug}`}
+      className="group block cursor-pointer"
+    >
+      <div className="mb-4 overflow-hidden rounded-lg">
+        <img
+          src={post.thumbnail || "/images/no-image.jpg"}
+          alt={post.title}
+          loading="lazy"
+          className="h-[240px] w-full object-cover transition duration-300 group-hover:scale-105"
+        />
+      </div>
+
+      <h3 className="line-clamp-3 font-semibold text-gray-800 transition group-hover:text-yellow-600">
+        {post.title}
+      </h3>
+    </Link>
+  );
+}
+
+function BlogSkeleton() {
+  return (
+    <>
+      {/* Mobile skeleton */}
+      <div className="flex gap-4 overflow-hidden md:hidden">
+        <div className="min-w-full animate-pulse">
+          <div className="h-[240px] rounded-lg bg-gray-200" />
+          <div className="mt-4 h-4 w-full rounded bg-gray-200" />
+          <div className="mt-2 h-4 w-4/5 rounded bg-gray-200" />
+        </div>
+      </div>
+
+      {/* Desktop skeleton */}
+      <div className="hidden grid-cols-3 gap-4 md:grid">
+        {[1, 2, 3].map((item) => (
+          <div key={item} className="animate-pulse">
+            <div className="h-[240px] rounded-lg bg-gray-200" />
+            <div className="mt-4 h-4 w-full rounded bg-gray-200" />
+            <div className="mt-2 h-4 w-4/5 rounded bg-gray-200" />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
