@@ -114,13 +114,13 @@ export default function DesignPricePage() {
               onClick={() =>
                 setSelectedImage({
                   title: "Bảng giá thiết kế Mộc Viên",
-                  image: "/images/bang-gia-thiet-ke.png",
+                  image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/bao_gia.jpg",
                 })
               }
               aria-label="Xem chi tiết bảng giá thiết kế"
             >
-              <Image
-                src="/images/bang-gia-thiet-ke.png"
+              <img
+                src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/bao_gia.jpg"
                 alt="Bảng giá thiết kế kiến trúc Mộc Viên Group"
                 width={973}
                 height={797}
@@ -170,7 +170,7 @@ export default function DesignPricePage() {
                     onClick={() => setSelectedImage(item)}
                     aria-label={`Xem ${item.title}`}
                   >
-                    <Image
+                    <img
                       src={item.image}
                       alt={item.title}
                       fill
@@ -234,7 +234,7 @@ export default function DesignPricePage() {
             </button>
 
             <div className="modal-image">
-              <Image
+              <img
                 src={selectedImage.image}
                 alt={selectedImage.title}
                 fill
