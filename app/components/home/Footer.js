@@ -9,7 +9,7 @@ export default function Footer() {
         {/* Cột 1: Thông tin tập đoàn */}
         <div className="space-y-4">
           <h3 className="text-xl font-bold border-l-4 border-yellow-500 pl-3">
-            MAXHOME GROUP
+            Mộc Viên
           </h3>
           <p className="text-gray-300 text-sm leading-relaxed">
             Tập đoàn thiết kế và thi công trọn gói hàng đầu Việt Nam. Chúng tôi mang đến giải pháp tối ưu cho không gian sống của bạn với quy trình chuyên nghiệp và minh bạch.
