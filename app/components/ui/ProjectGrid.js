@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function ProjectGrid({
   title = "Dự án",
@@ -25,9 +26,10 @@ export default function ProjectGrid({
       {/* Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {currentProjects.map((item) => (
-          <div
+          <Link
             key={item.id}
-            className="group cursor-pointer"
+            className="group cursor-pointer block"
+            href={`/du-an/${item.slug}`}
           >
             {/* Image */}
             <div className="relative overflow-hidden rounded-lg">
@@ -47,7 +49,7 @@ export default function ProjectGrid({
             <p className="mt-3 text-sm font-medium text-center leading-snug">
               {item.title}
             </p>
-          </div>
+          </Link>
         ))}
       </div>
 
