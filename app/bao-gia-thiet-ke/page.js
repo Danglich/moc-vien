@@ -125,31 +125,6 @@ export default function DesignPricePage() {
           </div>
         </section>
 
-        
-        {/* Phần giới thiệu */}
-        <section className="hero-section">
-          <div className="container hero-container">
-            <span className="sub-title">Mộc Viên Group</span>
-
-            <h1>Bảng giá thiết kế nhà ở</h1>
-
-            <p>
-              Mộc Viên cung cấp dịch vụ thiết kế kiến trúc, kết cấu, điện nước,
-              nội thất và phong thủy phù hợp với nhu cầu của từng gia đình.
-            </p>
-
-            <div className="hero-actions">
-              <a href="tel:0354136968" className="primary-button">
-                Gọi tư vấn: 035.413.6968
-              </a>
-
-              <a href="#bang-gia" className="secondary-button">
-                Xem bảng giá
-              </a>
-            </div>
-          </div>
-        </section>
-
         <CustomerContracts />
 
         {/* Liên hệ */}
