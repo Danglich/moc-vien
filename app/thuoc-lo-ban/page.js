@@ -78,8 +78,8 @@ export default function ThuocLoBanPage() {
 
       {/* Main Image */}
       <div className="mb-8">
-        <Image
-          src="/images/thuoc-lo-ban.png"
+        <img
+          src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thuoc_lo_ban.png"
           alt="Thước Lỗ Ban"
           width={1200}
           height={600}

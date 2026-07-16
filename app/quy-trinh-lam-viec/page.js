@@ -99,7 +99,7 @@ export default function Page() {
       {/* Image */}
       <div className="mb-8">
         <img
-          src="https://maxhomegroup.vn/wp-content/uploads/2025/12/QUY-TRINH-LAM-VIEC-MAXHOME-2026.jpg"
+          src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/quy_trinh.png"
           alt="Quy trình làm việc"
           width={1200}
           height={700}
