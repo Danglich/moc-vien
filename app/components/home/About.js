@@ -15,7 +15,7 @@ export const aboutData = {
       { value: "1000+", label: "Khách hàng yêu thích" },
       { value: "5.000+", label: "Đánh giá tích cực và trải nghiệm" },
     ],
-    image: "https://mocviengroup.vn/wp-content/uploads/2025/03/483487289_122116599596716662_6306153882274393052_n.jpg",
+    image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/anh-van-phong.png",
   },
 
   office: {
