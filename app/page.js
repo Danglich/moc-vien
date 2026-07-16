@@ -9,6 +9,7 @@ import BlogSection from "./components/home/BlogSection";
 import Hero from "./components/home/Hero";
 import AboutSection from "./components/home/About";
 import GardenBlogs from "./components/home/GardenBlogs";
+import CustomerContracts from "./components/home/CustomerContracts";
 
 export default function HomePage() {
   return (
@@ -17,7 +18,7 @@ export default function HomePage() {
       <FeaturedProjects />
       <AboutSection />
       <ConstructionSection />
-      <Testimonials />
+      <CustomerContracts />
       <BlogSection />
     </>
   );
