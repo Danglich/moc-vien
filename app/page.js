@@ -19,7 +19,6 @@ export default function HomePage() {
       <ConstructionSection />
       <Testimonials />
       <BlogSection />
-      <GardenBlogs />
     </>
   );
 }
