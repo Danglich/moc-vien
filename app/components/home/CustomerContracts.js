@@ -235,7 +235,7 @@ function ContractCard({ item, onOpen }) {
         aria-label={`Xem ảnh ${item.title}`}
       >
         <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-          <Image
+          <img
             src={item.image}
             alt={item.title}
             fill
