@@ -2,6 +2,7 @@ import { supabase } from "@/app/lib/supabase";
 import { NextResponse } from "next/server";
 
 export async function GET() {
+  try {
 
     const { data, error } = await supabase
       .from("blogs")
