@@ -40,7 +40,7 @@ export default function ConstructionSection() {
   }, []);
 
   return (
-    <div className="container mx-auto py-5 md:py-10 px-4">
+    <div className="container mx-auto md:py-5 md:py-10 px-4">
       <div>
         <h2 className="uppercase text-[17px] md:text-3xl text-center font-bold mb-5 md:mb-8">
           Công trình thực tế đang thi công

@@ -79,7 +79,7 @@ export default function CustomerContracts() {
 
   return (
     <>
-      <section className="overflow-hidden bg-white py-10 sm:py-12 md:py-20">
+      <section className="overflow-hidden bg-white py-5 md:py-10 sm:py-12 md:py-20">
         <div className="container mx-auto px-4 sm:px-6">
           {/* Tiêu đề */}
           <div className="mb-7 flex flex-col gap-4 sm:mb-9 md:flex-row md:items-end md:justify-between md:gap-6">

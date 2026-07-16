@@ -97,7 +97,7 @@ export default function BlogSlider() {
   }, [emblaApi, posts]);
 
   return (
-    <section ref={sectionRef} className="bg-white py-12">
+    <section ref={sectionRef} className="bg-white py-5 md:py-10">
       <div className="container mx-auto px-4">
         {/* Title */}
         <div className="mb-6 flex items-center justify-between gap-3">
