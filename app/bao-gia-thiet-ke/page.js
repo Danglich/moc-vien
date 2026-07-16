@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import CustomerContracts from "../components/home/CustomerContracts";
 
 const contractImages = [
   {
@@ -70,29 +71,6 @@ export default function DesignPricePage() {
   return (
     <>
       <main className="price-page">
-        {/* Phần giới thiệu */}
-        <section className="hero-section">
-          <div className="container hero-container">
-            <span className="sub-title">Mộc Viên Group</span>
-
-            <h1>Bảng giá thiết kế nhà ở</h1>
-
-            <p>
-              Mộc Viên cung cấp dịch vụ thiết kế kiến trúc, kết cấu, điện nước,
-              nội thất và phong thủy phù hợp với nhu cầu của từng gia đình.
-            </p>
-
-            <div className="hero-actions">
-              <a href="tel:0354136968" className="primary-button">
-                Gọi tư vấn: 035.413.6968
-              </a>
-
-              <a href="#bang-gia" className="secondary-button">
-                Xem bảng giá
-              </a>
-            </div>
-          </div>
-        </section>
 
         {/* Bảng giá thiết kế */}
         <section id="bang-gia" className="price-section">
@@ -147,48 +125,32 @@ export default function DesignPricePage() {
           </div>
         </section>
 
-        {/* Danh sách hợp đồng */}
-        <section className="contracts-section">
-          <div className="container">
-            <div className="section-heading">
-              <span>Khách hàng tin tưởng</span>
+        
+        {/* Phần giới thiệu */}
+        <section className="hero-section">
+          <div className="container hero-container">
+            <span className="sub-title">Mộc Viên Group</span>
 
-              <h2>Một số hợp đồng đã ký kết</h2>
+            <h1>Bảng giá thiết kế nhà ở</h1>
 
-              <p>
-                Hình ảnh các hợp đồng thiết kế và thi công đã được Mộc Viên ký
-                kết với khách hàng.
-              </p>
-            </div>
+            <p>
+              Mộc Viên cung cấp dịch vụ thiết kế kiến trúc, kết cấu, điện nước,
+              nội thất và phong thủy phù hợp với nhu cầu của từng gia đình.
+            </p>
 
-            <div className="contract-grid">
-              {contractImages.map((item) => (
-                <article className="contract-card" key={item.id}>
-                  <button
-                    type="button"
-                    className="contract-image"
-                    onClick={() => setSelectedImage(item)}
-                    aria-label={`Xem ${item.title}`}
-                  >
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      fill
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
+            <div className="hero-actions">
+              <a href="tel:0354136968" className="primary-button">
+                Gọi tư vấn: 035.413.6968
+              </a>
 
-                    <span className="view-image">Xem ảnh</span>
-                  </button>
-
-                  <div className="contract-content">
-                    <h3>{item.title}</h3>
-                    <p>{item.customer}</p>
-                  </div>
-                </article>
-              ))}
+              <a href="#bang-gia" className="secondary-button">
+                Xem bảng giá
+              </a>
             </div>
           </div>
         </section>
+
+        <CustomerContracts />
 
         {/* Liên hệ */}
         <section className="contact-section">
