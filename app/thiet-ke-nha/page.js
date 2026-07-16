@@ -16,7 +16,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/images/thiet-ke-nha/thiet-ke-nha-hero.jpg",
+        url: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thiet-ke-nha-hero.png",
         width: 1200,
         height: 630,
         alt: "Dịch vụ thiết kế nhà Mộc Viên Group",
@@ -235,8 +235,8 @@ export default function HouseDesignPage() {
 
             <div className="relative overflow-hidden rounded-3xl border-4 border-white bg-gray-100 shadow-2xl">
               <div className="relative aspect-[4/3]">
-                <Image
-                  src="/images/thiet-ke-nha/thiet-ke-nha-hero.jpg"
+                <img
+                  src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thiet-ke-nha-hero.png"
                   alt="Kiến trúc sư thiết kế nhà ở trước khi thi công"
                   fill
                   priority
@@ -272,8 +272,8 @@ export default function HouseDesignPage() {
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="relative overflow-hidden rounded-3xl bg-gray-100 shadow-xl">
             <div className="relative aspect-[4/3]">
-              <Image
-                src="/images/thiet-ke-nha/ho-so-thiet-ke.jpg"
+              <img
+                src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/ho-so-thiet-ke.png"
                 alt="Bộ hồ sơ thiết kế nhà ở hoàn chỉnh"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -461,7 +461,7 @@ export default function HouseDesignPage() {
                 className="group overflow-hidden rounded-2xl border border-gray-800 bg-gray-900 transition hover:-translate-y-2 hover:border-yellow-500"
               >
                 <div className="relative aspect-[4/3] overflow-hidden bg-gray-800">
-                  <Image
+                  <img
                     src={item.image}
                     alt={item.alt}
                     fill
@@ -507,7 +507,7 @@ export default function HouseDesignPage() {
               </p>
 
               <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-3xl bg-gray-100 shadow-xl">
-                <Image
+                <img
                   src="/images/thiet-ke-nha/quy-trinh-thiet-ke.jpg"
                   alt="Quy trình tư vấn và thiết kế nhà ở"
                   fill
