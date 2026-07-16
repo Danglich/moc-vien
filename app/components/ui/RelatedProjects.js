@@ -75,7 +75,7 @@ function ProjectCard({ project }) {
         {/* Hình ảnh */}
         <div className="relative aspect-[16/10] w-full overflow-hidden rounded-md bg-gray-100">
           {project.thumbnail ? (
-            <Image
+            <img
               src={project.thumbnail}
               alt={project.name}
               fill
