@@ -9,35 +9,35 @@ const posts = [
     title:
       "Vì sao xây nhà hay phát sinh chi phí? 7 nguyên nhân gia chủ cần biết",
     image:
-      "https://maxhomegroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
+      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
   },
   {
     id: 2,
     title:
       "7 Cách thiết kế nhà đẹp mà vẫn tiết kiệm 30% chi phí",
     image:
-      "https://maxhomegroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
+      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
   },
   {
     id: 3,
     title:
       "Thiết kế điện nước mất bao lâu? Quy trình và những hạng mục cần biết",
     image:
-      "https://maxhomegroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
+      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
   },
   {
     id: 4,
     title:
       "Kinh nghiệm chọn vật liệu xây dựng tiết kiệm và bền đẹp",
     image:
-      "https://maxhomegroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
+      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
   },
   {
     id: 5,
     title:
       "Top 5 mẫu nhà hiện đại được ưa chuộng nhất 2025",
     image:
-      "https://maxhomegroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
+      "https://mocviengroup.vn/wp-content/uploads/2026/03/thiet-ke-nha-2-tang-mat-bao-lau-1024x576.jpg",
   },
 ];
 

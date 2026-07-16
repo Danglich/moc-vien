@@ -1,12 +1,12 @@
 ---
 title: "Mẫu nhà phố 2 tầng 1 tum hiện đại tại Đà Nẵng | MH46494"
 description: "Thiết kế nhà phố hiện đại 3 tầng tối ưu công năng"
-cover: "https://maxhomegroup.vn/wp-content/uploads/2026/04/5-2.png"
+cover: "https://mocviengroup.vn/wp-content/uploads/2026/04/5-2.png"
 gallery:
-  - "https://maxhomegroup.vn/wp-content/uploads/2026/04/5-2.png"
-  - "https://maxhomegroup.vn/wp-content/uploads/2026/04/3-2.png"
-  - "https://maxhomegroup.vn/wp-content/uploads/2026/04/6.png"
-  - "https://maxhomegroup.vn/wp-content/uploads/2026/04/6.png"
+  - "https://mocviengroup.vn/wp-content/uploads/2026/04/5-2.png"
+  - "https://mocviengroup.vn/wp-content/uploads/2026/04/3-2.png"
+  - "https://mocviengroup.vn/wp-content/uploads/2026/04/6.png"
+  - "https://mocviengroup.vn/wp-content/uploads/2026/04/6.png"
 
 info:
   Chủ đầu tư: "Lê Thanh"

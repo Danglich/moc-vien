@@ -8,42 +8,42 @@ const projects = [
     title:
       "Mẫu nhà cấp 4 mái bằng chữ L đẹp cuốn hút, ấn tượng nhất làng | MH04617",
     price: "1,4 tỷ",
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
+    image: "https://mocviengroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
   },
   {
     id: 2,
     title:
       "Siêu phẩm nhà vườn 2 tầng mái Nhật quá đẳng cấp với chi phí hợp lý | MH04813",
     price: "1,8 tỷ",
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
+    image: "https://mocviengroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
   },
   {
     id: 3,
     title:
       "Mẫu nhà phố mái Nhật 2 tầng đẹp hiện đại, hợp xu hướng | MH02998",
     price: "1,4 tỷ",
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
+    image: "https://mocviengroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
   },
   {
     id: 4,
     title:
       "Ý tưởng thiết kế nhà ống 3 tầng 5x17m đẹp, sang, tiết kiệm chi phí | MH04732",
     price: "1,3 tỷ",
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
+    image: "https://mocviengroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
   },
   {
     id: 5,
     title:
       "Nhà mái bằng 2 tầng 1 tum hiện đại đẹp ngút ngàn tại Bắc Giang | MH02640",
     price: "1,7 tỷ",
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
+    image: "https://mocviengroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
   },
   {
     id: 6,
     title:
       "Mẫu nhà 2 tầng hiện đại đẹp độc đáo, ai cũng mê | MH03782",
     price: "1,2 tỷ",
-    image: "https://maxhomegroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
+    image: "https://mocviengroup.vn/wp-content/uploads/2025/05/sieu-pham-nha-vuon-2-tang-mai-nhat-qua-dang-cap-voi-chi-phi-hop-ly-1.jpg",
   },
 ];
 
