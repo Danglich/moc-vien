@@ -170,12 +170,12 @@ export default function CamKetPage() {
 
       {/* CTA */}
       <div className="mt-6 text-center">
-        <Link
-          href="/lien-he"
-          className="inline-block bg-black text-white px-6 py-2 rounded hover:bg-gray-800"
+        <a
+          href="tel:0354136968"
+          className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-yellow-500 px-5 text-sm font-bold text-gray-950 transition hover:-translate-y-1 hover:bg-yellow-600 sm:w-auto sm:text-base md:mt-0 md:shrink-0"
         >
-          Liên hệ tư vấn
-        </Link>
+          Hotline: 035.413.6968
+        </a>
       </div>
     </div>
   );
