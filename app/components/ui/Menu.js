@@ -29,7 +29,7 @@ export const menuData = [
   },
   {
     label: "ĐANG THI CÔNG",
-    url: "/dang-thi-cong",
+    url: "/cong-trinh-dang-thi-cong",
   },
   {
     label: "NỘI THẤT",
