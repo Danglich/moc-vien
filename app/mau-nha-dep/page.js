@@ -32,7 +32,7 @@ export default async function Page() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: type,
+    name: "Mẫu nhà đẹp",
     numberOfItems: projects.length,
     itemListElement: projects.map((project, index) => ({
       "@type": "ListItem",
