@@ -42,7 +42,7 @@ export default async function Page() {
   const schema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Mẫu nhà đẹp",
+    name: "Công trình Mộc Viên đã hoàn thành",
     numberOfItems: projects.length,
     itemListElement: projects.map((project, index) => ({
       "@type": "ListItem",
