@@ -116,7 +116,6 @@ export default function AdminProjectsPage() {
     "Villa",
     "Nhà phố",
     "Thiết kế nhà vườn",
-    "Mẫu nhà mái Thái",
     "Thiết kế nhà hiện đại",
     "Nhà phố",
     "Nhà 1 tầng",

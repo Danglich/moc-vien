@@ -17,7 +17,6 @@ export const menuData = [
     children: [
       { label: "Thiết kế nhà vườn", url: "/thiet-ke-nha-vuon" },
       { label: "Mẫu nhà mái Nhật", url: "/mau-nha-mai-nhat" },
-      { label: "Mẫu nhà mái Thái", url: "/mau-nha-mai-thai" },
       { label: "Nhà cấp 4", url: "/nha-cap-4" },
       { label: "Mẫu nhà ống đẹp", url: "/nha-ong-dep" },
       { label: "Thiết kế nhà hiện đại", url: "/thiet-ke-hien-dai" },
