@@ -62,9 +62,9 @@ export default async function Page() {
         }}
       />
 
-      <div className="py-6">
-        <h2 className="uppercase text-xl font-bold text-center">Dự án hoàn thành</h2>
-        <h2 className="uppercase text-yellow-400 text-xl font-bold text-center">Nổi bật của Mộc Viên</h2>
+      <div className="pt-5 md:mt-10">
+        <h2 className="uppercase text-xl md:text-3xl font-bold text-center">Dự án hoàn thành</h2>
+        <h2 className="uppercase text-yellow-400 text-xl md:text-3xl font-bold text-center">Nổi bật của Mộc Viên</h2>
       </div>
 
       {projects.length > 0 ? (

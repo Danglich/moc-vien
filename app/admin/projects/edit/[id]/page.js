@@ -49,6 +49,7 @@ export default function EditProjectPage() {
     "Nhà 3 tầng",
     "Nhà nhiều tầng",
     "Công trình đang thi công",
+    "Nội thất"
   ];
 
   // fetch project
