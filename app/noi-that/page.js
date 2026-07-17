@@ -3,7 +3,7 @@ import ProjectGrid from "../components/ui/ProjectGrid";
 
 export default async function Page() {
     // Giá trị này phải trùng với một phần tử trong cột types
-  const type = "Nội thất";
+  const type = "Mẫu nhà mái Nhật";
 
   const { data, error } = await supabase
     .from("projects")
