@@ -2,23 +2,33 @@ import { supabase } from "@/app/lib/supabase";
 import ProjectGrid from "../components/ui/ProjectGrid";
 export default async function Page() {
 
-  const { data, error } = await supabase
+    const allowedTypes = [
+    "Mẫu nhà mái Nhật",
+    "Nhà phố",
+    "Thiết kế nhà hiện đại",
+    "Mẫu biệt thự",
+    "Villa",
+    "Thiết kế nhà hiện đại",
+    ];
+
+    const { data, error } = await supabase
     .from("projects")
     .select(`
-      id,
-      name,
-      slug,
-      thumbnail,
-      types,
-      created_at
+        id,
+        name,
+        slug,
+        thumbnail,
+        types,
+        created_at
     `)
+    .overlaps("types", allowedTypes)
     .order("created_at", {
-      ascending: false,
+        ascending: false,
     });
 
-  if (error) {
+    if (error) {
     console.error("Lỗi lấy danh sách dự án:", error);
-  }
+    }
 
   const projects = (data || []).map((project) => ({
     id: project.id,
