@@ -1,4 +1,5 @@
 "use client";
+
 import Link from "next/link";
 
 export const menuData = [
@@ -39,27 +40,24 @@ export const menuData = [
 
 export default function Menu() {
   return (
-    <nav className="w-full bg-gray-100 sticky top-0">
-      <ul className="mx-auto flex items-center justify-center">
-        {menuData.map((item, index) => (
-          <li key={index} className="relative group">
-            
-            {/* Parent */}
+    <nav className="sticky top-0 z-[9999] w-full overflow-visible bg-gray-100">
+      <ul className="mx-auto flex items-center justify-center overflow-visible">
+        {menuData.map((item) => (
+          <li key={item.url} className="group relative">
             <Link
               href={item.url}
-              className={`block px-7 py-3 text-lg font-semibold transition hover:bg-primary hover:text-white`}
+              className="block px-7 py-3 text-lg font-semibold transition hover:bg-primary hover:text-white"
             >
               {item.label}
             </Link>
 
-            {/* Dropdown */}
             {item.children && (
-              <ul className="absolute left-0 top-full hidden group-hover:block bg-white shadow-md min-w-[260px] z-50">
-                {item.children.map((child, i) => (
-                  <li key={i}>
+              <ul className="invisible absolute left-0 top-full z-[10000] min-w-[260px] translate-y-2 bg-white opacity-0 shadow-lg transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
+                {item.children.map((child) => (
+                  <li key={child.url}>
                     <Link
                       href={child.url}
-                      className="block px-5 py-3 text-sm text-gray-700 hover:bg-gray-100"
+                      className="block whitespace-nowrap px-5 py-3 text-sm text-gray-700 transition hover:bg-gray-100 hover:text-primary"
                     >
                       {child.label}
                     </Link>

@@ -56,12 +56,6 @@ export default async function Page() {
         }}
       />
 
-      <div className="container mx-auto mt-8 px-4 text-gray-700">
-        <h1 className="mb-4 text-3xl font-bold">
-          Những công trình Mộc Viên đang thi công trọn gói
-        </h1>
-      </div>
-
       {projects.length > 0 ? (
         <ProjectGrid
           title={type}
