@@ -20,7 +20,7 @@ export const menuData = [
       { label: "Nhà cấp 4", url: "/nha-cap-4" },
       { label: "Mẫu nhà ống đẹp", url: "/nha-ong-dep" },
       { label: "Thiết kế nhà hiện đại", url: "/thiet-ke-hien-dai" },
-      { label: "Thiết kế biệt thự", url: "/biet-thu" },
+      { label: "Thiết kế biệt thự", url: "/mau-biet-thu" },
     ],
   },
   {
