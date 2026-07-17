@@ -66,7 +66,7 @@ export default async function Page() {
             </h2>
 
             <p className="mt-2 text-gray-600">
-              Hiện chưa có dự án thuộc loại “{type}”.
+              Hiện không tìm thấy dự án nào phù hợp.
             </p>
           </div>
         </div>
