@@ -13,10 +13,6 @@ const topLinks = [
   {
     title: "Thước lỗ ban",
     url: "/thuoc-lo-ban"
-  },
-  {
-    title: "Cảnh báo",
-    url: "#"
   }
 ]
 
