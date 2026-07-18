@@ -35,7 +35,7 @@ export default function FormRegister() {
 
             <a
               href="tel:0354136968"
-              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-red-400 px-5 text-sm font-bold transition hover:-translate-y-1 hover:bg-RED-600 sm:w-auto sm:text-base md:mt-0 md:shrink-0"
+              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-red-500 px-5 text-sm font-bold transition hover:-translate-y-1 hover:bg-red-600 sm:w-auto sm:text-base md:mt-0 md:shrink-0"
             >
               Hotline: 035.413.6968
             </a>
