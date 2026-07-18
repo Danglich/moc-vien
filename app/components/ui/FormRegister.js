@@ -27,7 +27,7 @@ export default function FormRegister() {
                 Bạn đang chuẩn bị xây nhà?
               </h3>
 
-              <p className="mt-2 text-sm leading-7 text-gray-400 sm:text-base">
+              <p className="mt-2 text-sm leading-7 sm:text-base">
                 Liên hệ Mộc Viên để được tư vấn công năng, kiến trúc và chi phí
                 thiết kế phù hợp.
               </p>
@@ -35,7 +35,7 @@ export default function FormRegister() {
 
             <a
               href="tel:0354136968"
-              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-yellow-500 px-5 text-sm font-bold text-gray-950 transition hover:-translate-y-1 hover:bg-yellow-600 sm:w-auto sm:text-base md:mt-0 md:shrink-0"
+              className="mt-5 inline-flex min-h-12 w-full items-center justify-center rounded-lg bg-red-500 px-5 text-sm font-bold text-gray-950 transition hover:-translate-y-1 hover:bg-yellow-600 sm:w-auto sm:text-base md:mt-0 md:shrink-0"
             >
               Hotline: 035.413.6968
             </a>
