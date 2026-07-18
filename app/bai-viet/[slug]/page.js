@@ -1,82 +1,192 @@
+import { cache } from "react";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { supabase } from "@/app/lib/supabase";
-import Editor from "@/app/components/Editor";
+
+const SITE_URL = "https://tenmiencuaban.vn";
+const SITE_NAME = "Mộc Viên";
+
+// Dùng chung dữ liệu cho generateMetadata và BlogDetail
+const getBlog = cache(async (slug) => {
+  const { data, error } = await supabase
+    .from("blogs")
+    .select(`
+      id,
+      title,
+      slug,
+      description,
+      thumbnail,
+      content,
+      created_at,
+      updated_at,
+      published
+    `)
+    .eq("slug", slug)
+    .eq("published", true)
+    .maybeSingle();
+
+  if (error) {
+    console.error("Lỗi lấy bài viết:", error);
+    return null;
+  }
+
+  return data;
+});
 
 export async function generateMetadata({ params }) {
-  const { data } = await supabase
-    .from("blogs")
-    .select("title,description,thumbnail")
-    .eq("slug", params.slug)
-    .single();
+  const { slug } = await params;
+  const blog = await getBlog(slug);
 
-  if (!data) {
+  if (!blog) {
     return {
       title: "Không tìm thấy bài viết",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const canonicalUrl = `${SITE_URL}/bai-viet/${blog.slug}`;
+
   return {
-    title: data.title,
-    description: data.description,
+    title: blog.title,
+    description: blog.description,
+
+    alternates: {
+      canonical: canonicalUrl,
+    },
+
     openGraph: {
-      title: data.title,
-      description: data.description,
-      images: [data.thumbnail],
+      type: "article",
+      locale: "vi_VN",
+      siteName: SITE_NAME,
+      title: blog.title,
+      description: blog.description,
+      url: canonicalUrl,
+      publishedTime: blog.created_at,
+      modifiedTime: blog.updated_at || blog.created_at,
+      images: blog.thumbnail
+        ? [
+            {
+              url: blog.thumbnail,
+              width: 1200,
+              height: 630,
+              alt: blog.title,
+            },
+          ]
+        : [],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: blog.title,
+      description: blog.description,
+      images: blog.thumbnail ? [blog.thumbnail] : [],
     },
   };
 }
 
 export default async function BlogDetail({ params }) {
-  const { data: blog, error } = await supabase
-    .from("blogs")
-    .select("*")
-    .eq("slug", params.slug)
-    .eq("published", true)
-    .single();
+  const { slug } = await params;
+  const blog = await getBlog(slug);
 
-  if (error || !blog) {
+  if (!blog) {
     notFound();
   }
 
+  const canonicalUrl = `${SITE_URL}/bai-viet/${blog.slug}`;
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": canonicalUrl,
+    },
+    headline: blog.title,
+    description: blog.description,
+    image: blog.thumbnail ? [blog.thumbnail] : [],
+    datePublished: blog.created_at,
+    dateModified: blog.updated_at || blog.created_at,
+    inLanguage: "vi-VN",
+    author: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE_URL}/logo.png`,
+      },
+    },
+  };
+
   return (
-    <div className="max-w-5xl mx-auto py-16 px-6">
-
-      {/* Thumbnail */}
-
-      <img
-        src={blog.thumbnail}
-        alt={blog.title}
-        className="w-full h-[450px] object-cover rounded-3xl"
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
       />
 
-      {/* Title */}
+      <main className="mx-auto max-w-5xl px-6 py-16">
+        <article>
+          {blog.thumbnail && (
+            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl">
+              <Image
+                src={blog.thumbnail}
+                alt={`Hình ảnh bài viết ${blog.title}`}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 1024px"
+                className="object-cover"
+              />
+            </div>
+          )}
 
-      <h1 className="text-5xl font-bold mt-10 leading-tight">
-        {blog.title}
-      </h1>
+          <header className="mt-10">
+            <h1 className="text-4xl font-bold leading-tight md:text-5xl">
+              {blog.title}
+            </h1>
 
-      {/* Description */}
+            {blog.description && (
+              <p className="mt-4 text-lg leading-relaxed text-gray-600 md:text-xl">
+                {blog.description}
+              </p>
+            )}
 
-      <p className="text-gray-500 text-xl mt-4">
-        {blog.description}
-      </p>
+            <time
+              dateTime={blog.created_at}
+              className="mt-4 block text-sm text-gray-500"
+            >
+              Đăng ngày{" "}
+              {new Date(blog.created_at).toLocaleDateString("vi-VN", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
+            </time>
+          </header>
 
-      {/* Date */}
-
-      <div className="mt-4 text-sm text-gray-400">
-        {new Date(blog.created_at).toLocaleDateString("vi-VN")}
-      </div>
-
-      {/* Content */}
-
-      <article className="prose prose-lg max-w-none mt-12">
-        <div
-          dangerouslySetInnerHTML={{
-            __html: blog.content,
-          }}
-        />
-      </article>
-
-    </div>
+          <div
+            className="prose prose-lg mt-12 max-w-none
+              prose-headings:font-bold
+              prose-img:rounded-xl
+              prose-a:text-blue-600
+              prose-a:no-underline
+              hover:prose-a:underline"
+            dangerouslySetInnerHTML={{
+              __html: blog.content,
+            }}
+          />
+        </article>
+      </main>
+    </>
   );
 }
