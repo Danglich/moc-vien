@@ -1,4 +1,4 @@
-import { getBlogBySlug } from "@/app/app/lib/blogs";
+import { getBlogBySlug } from "@/app/lib/blogs";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
