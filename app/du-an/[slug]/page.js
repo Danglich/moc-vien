@@ -5,8 +5,12 @@ import { supabase } from "@/app/lib/supabase";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-// ISR
-export const revalidate = 60;
+import {
+  getProject,
+  getRelatedProjects,
+} from "@/app/lib/project-cache";
+
+export const revalidate = 3600;
 
 // SEO
 export async function generateMetadata({
@@ -14,12 +18,7 @@ export async function generateMetadata({
 }) {
   const { slug } = await params;
 
-  const { data: project } =
-    await supabase
-      .from("projects")
-      .select("*")
-      .eq("slug", slug)
-      .maybeSingle();
+  const project = await getProject(slug);
 
   if (!project) {
     return {};
@@ -52,34 +51,15 @@ export default async function Page({
 }) {
   const { slug } = await params;
 
-  console.log("slug:", slug);
-
-  // current project
-  const {
-    data: project,
-    error,
-  } = await supabase
-    .from("projects")
-    .select("*")
-    .eq("slug", slug)
-    .maybeSingle();
-
-  console.log({
-    project,
-    error,
-  });
+  const [project, relatedProjects] =
+  await Promise.all([
+    getProject(slug),
+    getRelatedProjects(slug),
+  ]);
 
   if (!project) {
     notFound();
   }
-
-  // related projects
-  const { data: relatedProjects } =
-    await supabase
-      .from("projects")
-      .select("*")
-      .neq("slug", slug)
-      .limit(5);
 
   // schema seo
   const schema = {
