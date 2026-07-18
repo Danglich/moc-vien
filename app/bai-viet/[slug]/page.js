@@ -1,6 +1,6 @@
+import { getBlogBySlug } from "@/app/app/lib/blogs";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { getBlogBySlug } from "@/app/lib/blogs";
 
 const SITE_URL = "https://mocviengroup.vn";
 
