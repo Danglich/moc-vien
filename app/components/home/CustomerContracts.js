@@ -16,15 +16,15 @@ const contractImages = [
     id: 2,
     image:
       "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/hop-dong/IMG_20260608_113021.jpg",
-    title: "Ký hợp đồng thiết kế nhà phố",
-    location: "Khách hàng tại TP. Vinh",
+    title: "Ký hợp đồng thiết kế biệt thự vườn",
+    location: "Khách hàng tại Con Cuông - Nghệ An",
   },
   {
     id: 3,
     image:
       "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/hop-dong/IMG_20260624_111919.jpg",
-    title: "Ký hợp đồng thiết kế nhà vườn",
-    location: "Khách hàng tại Hà Tĩnh",
+    title: "Ký hợp đồng thiết kế nhà vườn kết hợp quán ăn vặt",
+    location: "Khách hàng tại Yên Thành - Nghệ An",
   },
   {
     id: 4,
@@ -37,13 +37,13 @@ const contractImages = [
     id: 5,
     image:
       "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/hop-dong/VID_20260512_094902.jpg",
-    title: "Ký hợp đồng thiết kế và thi công",
+    title: "Ký hợp đồng thiết kế nhà vườn mái Nhật",
     location: "Khách hàng tại Nam Đàn",
   },
   {
     id: 6,
     image:
-      "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/hop-dong/VID_20260605_103553.jpg",
+      "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/hop-dong/VID_20260326_095107.jpg",
     title: "Ký hợp đồng thiết kế nhà 2 tầng",
     location: "Khách hàng tại Cửa Lò",
   },
