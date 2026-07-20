@@ -92,13 +92,13 @@ export default function DesignPricePage() {
               onClick={() =>
                 setSelectedImage({
                   title: "Bảng giá thiết kế Mộc Viên",
-                  image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/bao_gia.jpg",
+                  image: "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/bao-gia.jpg",
                 })
               }
               aria-label="Xem chi tiết bảng giá thiết kế"
             >
               <img
-                src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/bao_gia.jpg"
+                src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/bao-gia.jpg"
                 alt="Bảng giá thiết kế kiến trúc Mộc Viên Group"
                 width={973}
                 height={797}
