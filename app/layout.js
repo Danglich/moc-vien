@@ -21,8 +21,19 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Mộc Viên - Làm nhà bằng cả kinh nghiệm và trải nghiệm thực tế",
-  description: "Mộc viên - Chuyên thiết kế và thi công trọn gái nhà ở",
+  metadataBase: new URL("https://mocviengroup.vn"),
+
+  title: {
+    default: "Mộc Viên Group",
+    template: "%s | Mộc Viên Group",
+  },
+
+  description:
+    "Mộc Viên Group chuyên thiết kế kiến trúc, nội thất và thi công nhà ở.",
+
+  verification: {
+    google: "53kF4d7kBdOd9AyX0tDfTUUxoQUeUAg5NRWoVFzh7WQ",
+  },
 };
 
 export default function RootLayout({ children }) {
