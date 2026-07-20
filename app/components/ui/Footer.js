@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
     FaEnvelope,
@@ -12,10 +13,22 @@ import {
 } from "react-icons/fa";
 
 const aboutLinks = [
-    "Giới thiệu Mộc Viên",
-    "Quy trình",
-    "Cam kết",
-    "Liên hệ",
+    {
+        title: "Giới thiệu Mộc Viên",
+        link: "gioi-thieu-moc-vien"
+    },
+    {
+        title: "Quy trình",
+        link: "quy-trinh"
+    },
+    {
+        title: "Cam kết",
+        link: "cam-ket"
+    },
+    {
+        title: "Liên hệ",
+        link: "lien-he"
+    }
 ];
 
 const branches = [
@@ -63,7 +76,9 @@ export default function Footer() {
                                     key={i}
                                     className="hover:text-yellow-400 cursor-pointer"
                                 >
-                                    {item}
+                                    <Link href={item.link}>
+                                        {item.title}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>

@@ -199,7 +199,7 @@ export default function CustomerContracts() {
               ×
             </button>
 
-            <div className="relative h-[68vh] w-full overflow-hidden rounded-lg bg-gray-100 sm:h-[75vh]">
+            <div className="relative h-[68vh] w-full overflow-hidden rounded-lg bg-gray-100 sm:h-[75vh] md:w-[50vw]">
               <img
                 src={selectedImage.image}
                 alt={selectedImage.title}
@@ -240,7 +240,7 @@ function ContractCard({ item, onOpen }) {
             alt={item.title}
             fill
             sizes="(max-width: 640px) 88vw, (max-width: 768px) 72vw, (max-width: 1024px) 50vw, 33vw"
-            className="object-cover transition duration-500 md:group-hover:scale-105"
+            className="object-cover transition duration-500 md:group-hover:scale-105 w-full h-[400px]"
           />
 
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
