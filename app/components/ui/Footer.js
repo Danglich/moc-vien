@@ -15,7 +15,7 @@ import {
 const aboutLinks = [
     {
         title: "Giới thiệu Mộc Viên",
-        link: "gioi-thieu-moc-vien"
+        link: "gioi-thieu"
     },
     {
         title: "Quy trình",
