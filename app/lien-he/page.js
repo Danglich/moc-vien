@@ -44,10 +44,10 @@ export default function ContactPage() {
               <p>
                 Email:{" "}
                 <a
-                  href="mailto:contact@mocvien.vn"
+                  href="mailto:mocviengroup8386@gmail.com"
                   className="font-medium text-blue-600 hover:underline"
                 >
-                  contact@mocvien.vn
+                  mocviengroup8386@gmail.com
                 </a>
               </p>
 
@@ -80,7 +80,7 @@ export default function ContactPage() {
             </h2>
 
             <form
-              action="https://formsubmit.co/contact@mocvien.vn"
+              action="https://formsubmit.co/mocviengroup8386@gmail.com"
               method="POST"
               className="space-y-5"
             >
@@ -166,7 +166,7 @@ export default function ContactPage() {
         <section className="mt-16 overflow-hidden">
           <iframe
             title="Vị trí văn phòng Mộc Viên"
-            src="https://www.google.com/maps?q=Vinh,+Nghệ+An&output=embed"
+            src="https://maps.app.goo.gl/Gv2QEaij7XuYwBai6"
             width="100%"
             height="420"
             loading="lazy"
