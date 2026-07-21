@@ -15,19 +15,19 @@ import {
 const aboutLinks = [
     {
         title: "Giới thiệu Mộc Viên",
-        link: "gioi-thieu"
+        link: "/gioi-thieu"
     },
     {
         title: "Quy trình",
-        link: "quy-trinh"
+        link: "/quy-trinh"
     },
     {
         title: "Cam kết",
-        link: "cam-ket"
+        link: "/cam-ket"
     },
     {
         title: "Liên hệ",
-        link: "lien-he"
+        link: "/lien-he"
     }
 ];
 
