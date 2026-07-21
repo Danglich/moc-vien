@@ -26,7 +26,7 @@ export async function generateMetadata({
 
   return {
     metadataBase: new URL(
-      "https://yourdomain.com"
+      "https://mocviengroup.vn"
     ),
 
     title: project.name,

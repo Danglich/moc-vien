@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://mocviengroup.vn"),
 
   title: "Thước Lỗ Ban là gì? Cách xem chuẩn | Mộc Viên",
   description:

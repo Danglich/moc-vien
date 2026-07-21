@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://mocviengroup.vn"),
 
   title: "Quy trình làm việc | Công ty ABC",
   description:
@@ -24,9 +24,9 @@ export const metadata = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://yourdomain.com/quy-trinh-lam-viec",
+  "@id": "https://mocviengroup.vn/quy-trinh-lam-viec",
   name: "Quy trình làm việc",
-  url: "https://yourdomain.com/quy-trinh-lam-viec",
+  url: "https://mocviengroup.vn/quy-trinh-lam-viec",
 };
 
 const breadcrumbSchema = {
@@ -37,13 +37,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Trang chủ",
-      item: "https://yourdomain.com",
+      item: "https://mocviengroup.vn",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Quy trình làm việc",
-      item: "https://yourdomain.com/quy-trinh-lam-viec",
+      item: "https://mocviengroup.vn/quy-trinh-lam-viec",
     },
   ],
 };

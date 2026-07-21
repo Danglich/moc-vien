@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = {
-  metadataBase: new URL("https://yourdomain.com"),
+  metadataBase: new URL("https://mocviengroup.vn"),
 
   title: "Cam kết Mộc Viên | Thiết kế & thi công nhà ở",
   description:
@@ -24,7 +24,7 @@ export const metadata = {
 const webPageSchema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "@id": "https://yourdomain.com/cam-ket",
+  "@id": "https://mocviengroup.vn/cam-ket",
   name: "Cam kết Mộc Viên",
 };
 
@@ -36,13 +36,13 @@ const breadcrumbSchema = {
       "@type": "ListItem",
       position: 1,
       name: "Trang chủ",
-      item: "https://yourdomain.com",
+      item: "https://mocviengroup.vn",
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Cam kết Mộc Viên",
-      item: "https://yourdomain.com/cam-ket",
+      item: "https://mocviengroup.vn/cam-ket",
     },
   ],
 };

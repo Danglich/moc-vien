@@ -42,7 +42,7 @@ export default async function Page() {
       "@type": "ListItem",
       position: index + 1,
       name: project.title,
-      url: `https://yourdomain.com/du-an/${project.slug}`,
+      url: `https://mocviengroup.vn/du-an/${project.slug}`,
       image: project.image || undefined,
     })),
   };
