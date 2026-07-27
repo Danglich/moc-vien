@@ -199,7 +199,7 @@ export default function CustomerContracts() {
               ×
             </button>
 
-            <div className="relative h-[68vh] w-full overflow-hidden rounded-lg bg-gray-100 sm:h-[75vh] md:w-[50vw]">
+            <div className="relative h-[68vh] w-full overflow-hidden rounded-lg bg-gray-100 sm:h-[75vh] md:w-[50%]">
               <img
                 src={selectedImage.image}
                 alt={selectedImage.title}

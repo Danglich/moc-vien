@@ -184,9 +184,9 @@ const localBusinessSchema = {
   "@type": "GeneralContractor",
   name: "Mộc Viên Group",
   url: "https://mocviengroup.vn",
-  logo: "https://mocviengroup.vn/images/moc-vien-logo.png",
+  logo: "https://moc-vien.vercel.app/images/moc-vien-logo.png",
   image:
-    "https://mocviengroup.vn/images/thi-cong-tron-goi-vinh-nghe-an.jpg",
+    "https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thi-cong-tron-goi.png",
   description:
     "Đơn vị thiết kế và thi công nhà trọn gói tại TP Vinh, Nghệ An.",
   areaServed: [
@@ -366,7 +366,7 @@ export default function Page() {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl border-4 border-white bg-gray-100 shadow-2xl">
                 <Image
-                  src="/images/thi-cong-tron-goi-vinh-nghe-an.jpg"
+                  src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thi-cong-tron-goi.png"
                   alt="Thi công nhà trọn gói tại thành phố Vinh Nghệ An"
                   width={900}
                   height={650}
