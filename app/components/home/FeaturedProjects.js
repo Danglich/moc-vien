@@ -173,7 +173,7 @@ export default function HouseTabs() {
       {/* Button */}
       {!loading && filteredProjects.length > 0 && (
         <div className="flex justify-center mt-4 md:mt-5">
-          <Link href={`/du-an${activeTab.slug}`}>
+          <Link href={`${activeTab.slug}`}>
             <button className="border md:text-black px-6 py-2 md:py-3 rounded-[30px] font-medium hover:bg-black hover:text-white cursor-pointer transition">
               Xem thêm
             </button>
