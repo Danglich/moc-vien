@@ -6,11 +6,11 @@ import { supabase } from "@/app/lib/supabase";
 
 // Chỉ hiển thị các type này
 const DISPLAY_TYPES = [
-  "Mẫu nhà mái Nhật",
-  "Thiết kế nhà hiện đại",
-  "Thiết kế nhà vườn",
-  "Nhà 2 tầng",
-  "Nhà cấp 4",
+  {title: "Mẫu nhà mái Nhật" , slug: "/mau-nha-mai-nhat"},
+  {title: "Mẫu biệt thự" , slug: "/mau-biet-thu"},
+  {title: "Nhà phố" , slug: "/mau-biet-thu"},
+  {title: "Mẫu biệt thự" , slug: "/mau-biet-thu"},
+  {title: "Thiết kế nhà vườn" , slug: "/thiet-ke-nha-vuon"}
 ];
 
 export default function HouseTabs() {
@@ -51,7 +51,7 @@ export default function HouseTabs() {
   const filteredProjects = useMemo(() => {
     return projects
       .filter((item) =>
-        (item.types || []).includes(activeTab)
+        (item.types || []).includes(activeTab.title)
       )
       .slice(0, 6);
   }, [projects, activeTab]);
@@ -67,16 +67,16 @@ export default function HouseTabs() {
       <div className="flex md:flex-wrap gap-4 md:gap-6 mb-8 overflow-x-auto no-scrollbar">
         {DISPLAY_TYPES.map((tab) => (
           <button
-            key={tab}
+            key={tab.title}
             onClick={() => setActiveTab(tab)}
             className={`whitespace-nowrap px-5 py-3 text-[15px] md:text-[17px] font-semibold transition
               ${
-                activeTab === tab
+                activeTab.title === tab.title
                   ? "bg-black text-yellow-400"
                   : "text-gray-700 hover:text-yellow-500"
               }`}
           >
-            {tab}
+            {tab.title}
           </button>
         ))}
       </div>
@@ -173,7 +173,7 @@ export default function HouseTabs() {
       {/* Button */}
       {!loading && filteredProjects.length > 0 && (
         <div className="flex justify-center mt-4 md:mt-5">
-          <Link href={`/du-an?type=${encodeURIComponent(activeTab)}`}>
+          <Link href={`/du-an${activeTab.slug}`}>
             <button className="border md:text-black px-6 py-2 md:py-3 rounded-[30px] font-medium hover:bg-black hover:text-white cursor-pointer transition">
               Xem thêm
             </button>
