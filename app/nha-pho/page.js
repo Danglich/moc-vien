@@ -1,27 +1,29 @@
 import { supabase } from "@/app/lib/supabase";
 import ProjectGrid from "../components/ui/ProjectGrid";
 
-const type = "Nhà cấp 4";
-const pageUrl = "https://mocviengroup.vn/nha-cap-4";
+const type = "Nhà phố";
+const pageUrl = "https://mocviengroup.vn/nha-pho";
 
 export const revalidate = 60;
 
 export const metadata = {
-  title: "Mẫu Nhà Cấp 4 Đẹp, Hiện Đại | Mộc Viên Group",
+  title: "Mẫu Nhà Phố Đẹp, Hiện Đại, Tối Ưu Công Năng | Mộc Viên Group",
 
   description:
-    "Tổng hợp những mẫu nhà cấp 4 đẹp, hiện đại, mái Nhật, mái Thái và nhà vườn do Mộc Viên thiết kế. Công năng khoa học, phù hợp với nhiều diện tích và ngân sách.",
+    "Tổng hợp những mẫu nhà phố đẹp, hiện đại, nhà ống 2 tầng, 3 tầng và nhà phố mặt tiền hẹp do Mộc Viên thiết kế. Công năng khoa học, phù hợp nhiều diện tích đất.",
 
   keywords: [
-    "nhà cấp 4",
-    "mẫu nhà cấp 4 đẹp",
-    "nhà cấp 4 hiện đại",
-    "nhà cấp 4 mái Nhật",
-    "nhà cấp 4 mái Thái",
-    "nhà vườn cấp 4",
-    "thiết kế nhà cấp 4",
-    "mẫu nhà cấp 4 nông thôn",
-    "thiết kế nhà Nghệ An",
+    "nhà phố",
+    "mẫu nhà phố đẹp",
+    "nhà phố hiện đại",
+    "nhà ống đẹp",
+    "nhà phố 2 tầng",
+    "nhà phố 3 tầng",
+    "nhà phố mặt tiền 5m",
+    "thiết kế nhà phố",
+    "thiết kế nhà ống",
+    "mẫu nhà phố Nghệ An",
+    "thiết kế nhà Hà Tĩnh",
     "Mộc Viên Group",
   ],
 
@@ -30,9 +32,9 @@ export const metadata = {
   },
 
   openGraph: {
-    title: "Mẫu Nhà Cấp 4 Đẹp, Hiện Đại | Mộc Viên Group",
+    title: "Mẫu Nhà Phố Đẹp, Hiện Đại | Mộc Viên Group",
     description:
-      "Khám phá những mẫu nhà cấp 4 đẹp, hiện đại, tối ưu công năng do Mộc Viên thiết kế.",
+      "Khám phá các mẫu nhà phố hiện đại, tối ưu công năng và phù hợp với nhiều diện tích đất do Mộc Viên thiết kế.",
     url: pageUrl,
     siteName: "Mộc Viên Group",
     type: "website",
@@ -41,9 +43,9 @@ export const metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Mẫu Nhà Cấp 4 Đẹp, Hiện Đại | Mộc Viên Group",
+    title: "Mẫu Nhà Phố Đẹp, Hiện Đại | Mộc Viên Group",
     description:
-      "Tổng hợp các mẫu nhà cấp 4 đẹp, mái Nhật, mái Thái và nhà vườn do Mộc Viên thiết kế.",
+      "Tổng hợp các mẫu nhà phố 2 tầng, 3 tầng và nhà ống hiện đại do Mộc Viên thiết kế.",
   },
 
   robots: {
@@ -73,7 +75,7 @@ export default async function Page() {
     });
 
   if (error) {
-    console.error("Lỗi lấy danh sách dự án:", error);
+    console.error("Lỗi lấy danh sách dự án nhà phố:", error);
   }
 
   const projects = (data || []).map((project) => ({
@@ -88,9 +90,9 @@ export default async function Page() {
   const itemListSchema = {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    name: "Danh sách mẫu nhà cấp 4 đẹp",
+    name: "Danh sách mẫu nhà phố đẹp",
     description:
-      "Tổng hợp các mẫu nhà cấp 4 đẹp, hiện đại do Mộc Viên thiết kế.",
+      "Tổng hợp các mẫu nhà phố đẹp, hiện đại và tối ưu công năng do Mộc Viên thiết kế.",
     url: pageUrl,
     numberOfItems: projects.length,
     itemListElement: projects.map((project, index) => ({
@@ -107,29 +109,29 @@ export default async function Page() {
 
   const faqItems = [
     {
-      question: "Chi phí xây nhà cấp 4 khoảng bao nhiêu?",
+      question: "Chi phí xây nhà phố khoảng bao nhiêu?",
       answer:
-        "Chi phí phụ thuộc vào diện tích, phong cách kiến trúc, loại mái, vật liệu hoàn thiện và khu vực xây dựng. Gia chủ nên có hồ sơ thiết kế cụ thể để lập dự toán chính xác và hạn chế phát sinh.",
+        "Chi phí xây nhà phố phụ thuộc vào diện tích xây dựng, số tầng, phong cách kiến trúc, kết cấu móng, vật liệu hoàn thiện và khu vực thi công. Gia chủ nên có hồ sơ thiết kế và bảng dự toán chi tiết trước khi xây dựng để kiểm soát ngân sách.",
     },
     {
-      question: "Nhà cấp 4 nên làm mái Nhật hay mái Thái?",
+      question: "Nhà phố mặt tiền 5 mét nên bố trí công năng thế nào?",
       answer:
-        "Mái Nhật phù hợp với phong cách nhẹ nhàng, hiện đại và có độ dốc vừa phải. Mái Thái có độ dốc cao, thoát nước tốt và tạo cảm giác bề thế. Việc lựa chọn nên dựa trên phong cách, khí hậu và ngân sách.",
+        "Với nhà phố mặt tiền khoảng 5 mét, nên hạn chế hành lang dài, bố trí cầu thang hợp lý và kết hợp giếng trời để tăng ánh sáng, thông gió. Công năng cần được sắp xếp theo nhu cầu của từng gia đình và chiều sâu khu đất.",
     },
     {
-      question: "Diện tích nhà cấp 4 bao nhiêu là hợp lý?",
+      question: "Nhà phố có cần làm giếng trời không?",
       answer:
-        "Với gia đình từ 4 đến 6 người, diện tích khoảng 100 đến 160 mét vuông thường có thể bố trí phòng khách, bếp, phòng thờ và từ 3 đến 4 phòng ngủ.",
+        "Những mẫu nhà phố có chiều sâu lớn hoặc bị che chắn hai bên thường nên bố trí giếng trời. Giếng trời giúp lấy sáng, thông gió và giảm cảm giác bí bách cho khu vực cầu thang, phòng bếp hoặc hành lang.",
     },
     {
-      question: "Thiết kế nhà cấp 4 mất bao lâu?",
+      question: "Nhà phố nên xây 2 tầng hay 3 tầng?",
       answer:
-        "Thời gian thiết kế phụ thuộc vào quy mô và mức độ chi tiết của công trình. Quy trình thường gồm khảo sát, bố trí mặt bằng, dựng phối cảnh và hoàn thiện hồ sơ kỹ thuật thi công.",
+        "Việc lựa chọn số tầng phụ thuộc vào diện tích đất, số lượng thành viên, nhu cầu phòng ngủ và ngân sách. Nhà phố 2 tầng phù hợp với gia đình có nhu cầu vừa phải, trong khi nhà 3 tầng phù hợp khi cần thêm phòng ngủ, phòng thờ hoặc không gian làm việc.",
     },
     {
-      question: "Mộc Viên có nhận thiết kế và thi công nhà cấp 4 không?",
+      question: "Mộc Viên có nhận thiết kế và thi công nhà phố không?",
       answer:
-        "Mộc Viên cung cấp dịch vụ tư vấn, thiết kế kiến trúc, nội thất, giám sát và thi công nhà ở theo nhu cầu, diện tích đất và ngân sách của từng gia đình.",
+        "Mộc Viên cung cấp dịch vụ tư vấn, thiết kế kiến trúc, thiết kế nội thất, giám sát và thi công nhà phố theo diện tích đất, nhu cầu sử dụng và ngân sách của từng gia đình.",
     },
   ];
 
@@ -163,7 +165,7 @@ export default async function Page() {
       />
 
       <main className="bg-white">
-        {/* TIÊU ĐỀ NGẮN ĐẦU TRANG */}
+        {/* TIÊU ĐỀ ĐẦU TRANG */}
         <section className="border-b border-amber-100 bg-gradient-to-r from-amber-50 via-yellow-50 to-white">
           <div className="container mx-auto px-4 py-8 md:py-10">
             <div className="max-w-4xl">
@@ -172,18 +174,18 @@ export default async function Page() {
               </div>
 
               <h1 className="text-3xl font-bold leading-tight text-gray-900 md:text-4xl">
-                Mẫu nhà cấp 4 đẹp, hiện đại
+                Mẫu nhà phố đẹp, hiện đại
               </h1>
 
               <p className="mt-3 max-w-3xl text-sm leading-7 text-gray-600 md:text-base">
-                Tham khảo những mẫu nhà cấp 4 mái Nhật, mái Thái và nhà
-                vườn hiện đại do Mộc Viên thiết kế.
+                Tham khảo những mẫu nhà phố 2 tầng, 3 tầng và nhà ống hiện
+                đại được thiết kế tối ưu công năng, ánh sáng và thông gió.
               </p>
             </div>
           </div>
         </section>
 
-        {/* DỰ ÁN ĐƯỢC ƯU TIÊN HIỂN THỊ TRƯỚC */}
+        {/* DANH SÁCH DỰ ÁN */}
         <section className="bg-white py-8 md:py-12">
           <div className="container mx-auto px-4">
             <div className="mb-7 flex flex-col justify-between gap-4 border-b border-gray-100 pb-5 md:flex-row md:items-end">
@@ -193,12 +195,12 @@ export default async function Page() {
                 </span>
 
                 <h2 className="mt-2 text-2xl font-bold text-gray-900 md:text-3xl">
-                  Các mẫu nhà cấp 4 mới nhất
+                  Các mẫu nhà phố mới nhất
                 </h2>
 
                 <p className="mt-2 max-w-2xl text-sm leading-7 text-gray-600 md:text-base">
-                  Nhấn vào từng mẫu nhà để xem phối cảnh, công năng và
-                  thông tin chi tiết của dự án.
+                  Nhấn vào từng mẫu nhà để xem phối cảnh kiến trúc, công
+                  năng và thông tin chi tiết của dự án.
                 </p>
               </div>
 
@@ -211,16 +213,12 @@ export default async function Page() {
           </div>
 
           {projects.length > 0 ? (
-            <ProjectGrid
-              title=""
-              projects={projects}
-              pageSize={12}
-            />
+            <ProjectGrid title="" projects={projects} pageSize={12} />
           ) : (
             <div className="container mx-auto px-4 py-10">
               <div className="mx-auto max-w-3xl rounded-3xl border border-amber-200 bg-amber-50 p-10 text-center shadow-sm">
                 <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-amber-100 text-2xl">
-                  🏡
+                  🏠
                 </div>
 
                 <h2 className="mt-5 text-2xl font-bold text-gray-900">
@@ -235,26 +233,26 @@ export default async function Page() {
           )}
         </section>
 
-        {/* THANH THÔNG TIN NGẮN */}
+        {/* ĐẶC ĐIỂM NHÀ PHỐ */}
         <section className="border-y border-amber-100 bg-amber-50/70">
           <div className="container mx-auto px-4 py-8">
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {[
                 {
-                  title: "Tối ưu công năng",
-                  description: "Bố trí phù hợp nhu cầu sử dụng thực tế",
+                  title: "Tối ưu diện tích",
+                  description: "Tận dụng hiệu quả mặt tiền và chiều sâu khu đất",
                 },
                 {
-                  title: "Kiến trúc thẩm mỹ",
-                  description: "Hình khối hài hòa, bền đẹp lâu dài",
+                  title: "Lấy sáng tự nhiên",
+                  description: "Bố trí giếng trời, cửa sổ và khoảng thông tầng",
                 },
                 {
-                  title: "Phù hợp khí hậu",
-                  description: "Giải pháp chống nóng và thoát nước tốt",
+                  title: "Thông gió hiệu quả",
+                  description: "Hạn chế cảm giác bí bách trong nhà phố dài",
                 },
                 {
                   title: "Kiểm soát chi phí",
-                  description: "Thiết kế theo ngân sách của gia đình",
+                  description: "Thiết kế phù hợp với ngân sách của gia đình",
                 },
               ].map((item, index) => (
                 <div
@@ -294,21 +292,21 @@ export default async function Page() {
                   </p>
 
                   <h2 className="mt-3 text-2xl font-bold leading-snug text-gray-900">
-                    Thiết kế nhà cấp 4 phù hợp với từng gia đình
+                    Thiết kế nhà phố phù hợp với diện tích và nhu cầu sử dụng
                   </h2>
 
                   <p className="mt-4 leading-7 text-gray-600">
-                    Một ngôi nhà đẹp không chỉ nằm ở hình thức bên ngoài
-                    mà còn phải phù hợp với thói quen sinh hoạt, diện tích
-                    đất và ngân sách của gia chủ.
+                    Nhà phố thường có mặt tiền hẹp và chiều sâu lớn. Vì vậy,
+                    việc tổ chức công năng, ánh sáng và thông gió cần được
+                    tính toán kỹ ngay từ giai đoạn thiết kế.
                   </p>
 
                   <div className="mt-6 space-y-3">
                     {[
-                      "Tối ưu công năng sử dụng",
-                      "Phù hợp khí hậu miền Trung",
-                      "Kiểm soát chi phí xây dựng",
-                      "Đảm bảo thẩm mỹ lâu dài",
+                      "Tối ưu diện tích sử dụng",
+                      "Tăng ánh sáng tự nhiên",
+                      "Hạn chế không gian bí bách",
+                      "Đảm bảo thẩm mỹ mặt tiền",
                     ].map((item) => (
                       <div
                         key={item}
@@ -335,84 +333,74 @@ export default async function Page() {
                       </span>
 
                       <h2 className="text-2xl font-bold leading-snug text-gray-900 md:text-3xl">
-                        Những mẫu nhà cấp 4 đẹp được nhiều gia đình lựa chọn
+                        Những mẫu nhà phố đẹp được nhiều gia đình lựa chọn
                       </h2>
 
                       <div className="mt-4 h-1 w-14 rounded-full bg-amber-400" />
 
                       <p className="mt-5">
-                        Nhà cấp 4 là loại hình nhà ở được nhiều gia đình
-                        lựa chọn nhờ chi phí xây dựng hợp lý, thời gian thi
-                        công nhanh và khả năng đáp ứng tốt nhu cầu sinh
-                        hoạt. Với sự phát triển của kiến trúc hiện đại,
-                        các mẫu nhà cấp 4 ngày nay không chỉ đơn giản mà
-                        còn có tính thẩm mỹ cao, công năng khoa học và
-                        không gian sống tiện nghi.
+                        Nhà phố là loại hình nhà ở phổ biến tại thành phố,
+                        thị xã và các khu dân cư đông đúc. Đặc điểm thường
+                        gặp của nhà phố là chiều ngang hạn chế nhưng chiều
+                        sâu tương đối lớn, hai bên có thể tiếp giáp với các
+                        công trình khác.
                       </p>
 
                       <p className="mt-4">
-                        Tại Mộc Viên, mỗi mẫu nhà cấp 4 đều được nghiên cứu
-                        dựa trên diện tích khu đất, hướng nhà, nhu cầu sử
-                        dụng, số lượng thành viên và ngân sách đầu tư.
-                        Việc bố trí phòng khách, phòng bếp, phòng ngủ,
-                        phòng thờ và khu vệ sinh được tính toán hợp lý,
-                        hạn chế diện tích giao thông và tận dụng tối đa
-                        không gian sử dụng.
+                        Vì vậy, một phương án nhà phố đẹp không chỉ cần có
+                        mặt tiền hiện đại mà còn phải giải quyết tốt vấn đề
+                        công năng, ánh sáng, thông gió, giao thông trong nhà
+                        và sự riêng tư giữa các không gian.
                       </p>
                     </section>
 
                     <section className="rounded-3xl bg-amber-50 p-6 md:p-8">
                       <span className="mb-3 inline-block rounded-full bg-white px-3 py-1 text-sm font-semibold text-amber-700 shadow-sm">
-                        Phong cách
+                        Công năng
                       </span>
 
                       <h2 className="text-2xl font-bold text-gray-900">
-                        Đa dạng phong cách thiết kế nhà cấp 4
+                        Bố trí công năng khoa học cho nhà phố
                       </h2>
 
                       <p className="mt-5">
-                        Các mẫu nhà cấp 4 hiện nay có nhiều phong cách như
-                        nhà cấp 4 mái Nhật, nhà cấp 4 mái Thái, nhà cấp 4
-                        hiện đại, nhà cấp 4 chữ L và nhà vườn cấp 4. Mỗi
-                        phong cách có đặc điểm riêng về hình khối, hệ mái,
-                        vật liệu và mức chi phí xây dựng.
+                        Khi thiết kế nhà phố, cầu thang là một trong những
+                        khu vực ảnh hưởng lớn đến toàn bộ mặt bằng. Vị trí
+                        cầu thang cần thuận tiện cho việc di chuyển nhưng
+                        không chiếm quá nhiều diện tích hoặc chia nhỏ không
+                        gian sinh hoạt.
                       </p>
 
                       <p className="mt-4">
-                        Nhà cấp 4 mái Nhật thường có hình thức cân đối, độ
-                        dốc mái vừa phải và phù hợp với những gia đình yêu
-                        thích vẻ đẹp nhẹ nhàng, hiện đại. Nhà cấp 4 mái
-                        Thái có hệ mái cao, khả năng thoát nước tốt và tạo
-                        cảm giác bề thế. Trong khi đó, nhà cấp 4 hiện đại
-                        thường sử dụng hình khối đơn giản, cửa kính lớn và
-                        vật liệu mới để tạo nên không gian trẻ trung.
+                        Phòng khách, phòng bếp, phòng ngủ, phòng thờ và khu
+                        vệ sinh cần được bố trí phù hợp với thói quen sử dụng
+                        của gia đình. Với những khu đất dài, có thể sử dụng
+                        sân trong hoặc giếng trời để chia khoảng không gian
+                        và tăng chất lượng chiếu sáng.
                       </p>
                     </section>
 
                     <section>
                       <span className="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-sm font-semibold text-amber-700">
-                        Khí hậu
+                        Ánh sáng
                       </span>
 
                       <h2 className="text-2xl font-bold text-gray-900">
-                        Thiết kế nhà cấp 4 phù hợp với khí hậu miền Trung
+                        Giải pháp lấy sáng và thông gió cho nhà phố
                       </h2>
 
                       <p className="mt-5">
-                        Khi thiết kế nhà cấp 4 tại Nghệ An, Hà Tĩnh và khu
-                        vực miền Trung, cần đặc biệt quan tâm đến khả năng
-                        chống nóng, chống thấm, thoát nước mái và thông
-                        gió tự nhiên. Hệ mái cần có độ dốc phù hợp, phần
-                        đua mái đủ rộng và vật liệu hoàn thiện phải có khả
-                        năng chịu được điều kiện thời tiết khắc nghiệt.
+                        Nhà phố thường khó mở cửa sổ ở hai bên do tiếp giáp
+                        với nhà hàng xóm. Vì vậy, ngoài mặt tiền và mặt sau,
+                        giếng trời là giải pháp quan trọng giúp đưa ánh sáng
+                        và không khí tự nhiên vào giữa nhà.
                       </p>
 
                       <p className="mt-4">
-                        Bên cạnh đó, việc bố trí cửa sổ, cửa đi và các
-                        khoảng sân vườn hợp lý sẽ giúp ngôi nhà đón ánh
-                        sáng tự nhiên nhưng vẫn hạn chế nắng nóng trực
-                        tiếp. Đây là yếu tố quan trọng để tạo nên không
-                        gian sống thoáng mát và tiết kiệm điện năng.
+                        Giếng trời có thể bố trí tại khu vực cầu thang,
+                        phòng bếp hoặc khoảng giữa phòng khách và bếp. Tuy
+                        nhiên, cần xử lý tốt hệ mái che, thoát nước và chống
+                        thấm để tránh phát sinh sự cố trong quá trình sử dụng.
                       </p>
                     </section>
 
@@ -422,25 +410,23 @@ export default async function Page() {
                       </span>
 
                       <h2 className="text-2xl font-bold text-gray-900">
-                        Vì sao nên thiết kế nhà cấp 4 trước khi thi công?
+                        Vì sao nên thiết kế nhà phố trước khi xây dựng?
                       </h2>
 
                       <p className="mt-5">
-                        Một bộ hồ sơ thiết kế đầy đủ sẽ giúp gia chủ hình
-                        dung rõ hình thức ngôi nhà, kiểm soát công năng và
-                        dự toán chi phí trước khi xây dựng. Hồ sơ cũng
-                        giúp đội ngũ thi công thực hiện đúng kích thước,
-                        kết cấu, vật liệu và hạn chế tối đa việc sửa đổi
-                        hoặc phát sinh chi phí.
+                        Nhà phố thường có diện tích đất hạn chế nên chỉ cần
+                        bố trí sai cầu thang, vệ sinh hoặc phòng ngủ cũng có
+                        thể làm giảm đáng kể diện tích sử dụng. Hồ sơ thiết
+                        kế giúp gia chủ kiểm tra trước công năng và hình thức
+                        ngôi nhà trước khi thi công.
                       </p>
 
                       <p className="mt-4">
-                        Mộc Viên cung cấp giải pháp từ tư vấn ý tưởng,
-                        thiết kế mặt bằng công năng, phối cảnh kiến trúc,
-                        hồ sơ kỹ thuật đến giám sát và thi công. Mỗi công
-                        trình được phát triển dựa trên nhu cầu thực tế của
-                        gia đình, đảm bảo sự cân bằng giữa thẩm mỹ, công
-                        năng, chất lượng và ngân sách đầu tư.
+                        Bản vẽ thiết kế đầy đủ cũng giúp đội ngũ thi công
+                        xác định chính xác kích thước, kết cấu, vị trí điện
+                        nước và vật liệu hoàn thiện. Nhờ đó, gia chủ có thể
+                        hạn chế việc đập sửa và kiểm soát tốt hơn các khoản
+                        chi phí phát sinh.
                       </p>
                     </section>
                   </div>
@@ -460,12 +446,12 @@ export default async function Page() {
                 </span>
 
                 <h2 className="mt-5 text-3xl font-bold text-gray-900 md:text-4xl">
-                  Câu hỏi thường gặp về nhà cấp 4
+                  Câu hỏi thường gặp về nhà phố
                 </h2>
 
                 <p className="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
                   Những vấn đề được nhiều gia chủ quan tâm trước khi thiết
-                  kế và xây dựng nhà cấp 4.
+                  kế và xây dựng nhà phố.
                 </p>
               </div>
 

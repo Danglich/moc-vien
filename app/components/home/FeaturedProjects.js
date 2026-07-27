@@ -7,10 +7,9 @@ import { supabase } from "@/app/lib/supabase";
 // Chỉ hiển thị các type này
 const DISPLAY_TYPES = [
   {title: "Mẫu nhà mái Nhật" , slug: "/mau-nha-mai-nhat"},
-  {title: "Mẫu biệt thự" , slug: "/mau-biet-thu"},
-  {title: "Nhà phố" , slug: "/mau-biet-thu"},
-  {title: "Mẫu biệt thự" , slug: "/mau-biet-thu"},
-  {title: "Thiết kế nhà vườn" , slug: "/thiet-ke-nha-vuon"}
+  {title: "Nhà phố" , slug: "/nha-pho"},
+  {title: "Thiết kế nhà vườn" , slug: "/thiet-ke-nha-vuon"},
+  {title: "Mẫu biệt thự" , slug: "/mau-biet-thu"}
 ];
 
 export default function HouseTabs() {
