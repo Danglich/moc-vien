@@ -408,7 +408,7 @@ export default function Page() {
             <div className="relative">
               <div className="overflow-hidden rounded-3xl border-4 border-white bg-gray-100 shadow-2xl">
                 <Image
-                  src="/images/thiet-ke-nha-nghe-an/anh-bia.jpg"
+                  src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thiet-ke-nha-o-vinh.png"
                   alt="Thiết kế nhà ở Nghệ An"
                   width={1000}
                   height={750}
@@ -562,7 +562,7 @@ export default function Page() {
 
             <div className="overflow-hidden rounded-3xl bg-gray-100 shadow-xl">
               <Image
-                src="/images/thiet-ke-nha-nghe-an/anh-kien-truc-su.jpg"
+                src="https://kuqztqzzyxnsigkrjerd.supabase.co/storage/v1/object/public/images/thiet-ke-nha.png"
                 alt="Kiến trúc sư tư vấn thiết kế nhà tại Nghệ An"
                 width={900}
                 height={700}
