@@ -21,6 +21,7 @@ export const menuData = [
       { label: "Mẫu nhà phố", url: "/nha-pho" },
       { label: "Thiết kế nhà hiện đại", url: "/thiet-ke-hien-dai" },
       { label: "Thiết kế biệt thự", url: "/mau-biet-thu" },
+      { label: "Mẫu villa", url: "/mau-villa" },
     ],
   },
   {
