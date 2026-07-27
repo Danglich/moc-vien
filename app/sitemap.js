@@ -31,6 +31,12 @@ export default async function sitemap() {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}/thi-cong-tron-goi-tai-vinh-nghe-an`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.9,
+    },
+    {
       url: `${baseUrl}/du-an`,
       lastModified: new Date(),
       changeFrequency: "weekly",

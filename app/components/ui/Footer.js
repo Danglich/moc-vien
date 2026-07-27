@@ -28,6 +28,10 @@ const aboutLinks = [
     {
         title: "Liên hệ",
         link: "/lien-he"
+    },
+    {
+        title: "Thi công trọn gói",
+        link: "/thi-cong-tron-goi-tai-vinh-nghe-an"
     }
 ];
 
