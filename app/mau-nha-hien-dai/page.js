@@ -1,7 +1,7 @@
 import { supabase } from "@/app/lib/supabase";
 import ProjectGrid from "../components/ui/ProjectGrid";
 
-const type = "Nhà hiện đại";
+const type = "Thiết kế nhà hiện đại";
 const pageUrl = "https://mocviengroup.vn/mau-nha-hien-dai";
 
 export const revalidate = 60;
