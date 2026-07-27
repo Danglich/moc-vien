@@ -187,30 +187,6 @@ export default async function Page() {
 
         {/* DANH SÁCH DỰ ÁN */}
         <section className="bg-white py-8 md:py-12">
-          <div className="container mx-auto px-4">
-            <div className="mb-7 flex flex-col justify-between gap-4 border-b border-gray-100 pb-5 md:flex-row md:items-end">
-              <div>
-                <span className="text-sm font-semibold uppercase tracking-widest text-amber-600">
-                  Dự án nổi bật
-                </span>
-
-                <h2 className="mt-2 text-2xl font-bold text-gray-900 md:text-3xl">
-                  Các mẫu nhà phố mới nhất
-                </h2>
-
-                <p className="mt-2 max-w-2xl text-sm leading-7 text-gray-600 md:text-base">
-                  Nhấn vào từng mẫu nhà để xem phối cảnh kiến trúc, công
-                  năng và thông tin chi tiết của dự án.
-                </p>
-              </div>
-
-              {projects.length > 0 && (
-                <div className="shrink-0 rounded-full bg-amber-50 px-4 py-2 text-sm font-semibold text-amber-700">
-                  {projects.length} mẫu thiết kế
-                </div>
-              )}
-            </div>
-          </div>
 
           {projects.length > 0 ? (
             <ProjectGrid title="" projects={projects} pageSize={12} />
