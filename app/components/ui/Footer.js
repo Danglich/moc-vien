@@ -19,7 +19,7 @@ const aboutLinks = [
     },
     {
         title: "Quy trình",
-        link: "/quy-trinh"
+        link: "/quy-trinh-lam-viec"
     },
     {
         title: "Cam kết",
